@@ -476,7 +476,11 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <h1 id="1-通过自己的spring内核实现AOP"><a href="#1-通过自己的spring内核实现AOP" class="headerlink" title="1. 通过自己的spring内核实现AOP"></a>1. 通过自己的spring内核实现AOP</h1><p>配置文件：</p>
+          <a id="more"></a>
+
+
+
+<h1 id="1-通过自己的spring内核实现AOP"><a href="#1-通过自己的spring内核实现AOP" class="headerlink" title="1. 通过自己的spring内核实现AOP"></a>1. 通过自己的spring内核实现AOP</h1><p>配置文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;before&quot;</span>  <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.DemoBefore&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;after&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.DemoAfterMethod&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;aobj&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.A&quot;</span>/&gt;</span></span><br><span class="line">   </span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;proxy&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.ProxyHelloTwo&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;target&quot;</span>  <span class="attr">ref</span>=<span class="string">&quot;aobj&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;before&quot;</span>  <span class="attr">ref</span>=<span class="string">&quot;before&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;after&quot;</span>   <span class="attr">ref</span>=<span class="string">&quot;after&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​        通过解析这个配置文件，可以得到两个切片的对象，被代理的对象。然后使用接口对象去引用该中间代理类生成的对象，即可实现AOP功能。</p>
@@ -610,7 +614,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-01T14:29:28+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-01T21:11:49+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 1, 2020</p>
@@ -691,7 +695,11 @@
             
               <a class='next' href='/blogs/AOP%E6%8A%80%E6%9C%AF(1)/'>
                 <p class='title'>AOP技术(1)<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>1、AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编程），可以说是OOP（Object-Oriented Programing，面向对象编程...</p>
+                <p class='content'>
+
+
+
+1、AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编程），可以说是OOP（Object-Oriented Programing，面向...</p>
               </a>
             
           </div>
@@ -960,16 +968,16 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
