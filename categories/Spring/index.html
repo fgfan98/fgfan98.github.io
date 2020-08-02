@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta name="renderer" content="webkit">
@@ -16,9 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>xml解析 - 柴德Fun</title>
-  
-    <meta name="keywords" content="基础知识,XML">
+  <title>分類：Spring - 柴德Fun</title>
   
 
   
@@ -74,7 +74,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post' style="display: none;">
+    <cover class='cover ' style="display: none;">
       <div class='cover-body'>
   <div class='a'>
     
@@ -82,15 +82,7 @@
     
   </div>
   <div class='b'>
-    
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="Search..." />
-          <i class="icon fas fa-search fa-fw"></i>
-        </form>
-      </div>
-    
-    <div class='menu navigation search'>
+    <div class='menu navigation dock'>
       <div class='list-h'>
         
       </div>
@@ -360,10 +352,10 @@
 
 
 <div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">true</div>
-  <div id="pjax-pageTitle">xml解析</div>
+  <div id="pjax-ispage">false</div>
+  <div id="pjax-pageTitle"></div>
   <div id="pjax-enable-cover">true</div>
-  <div id="pjax-permalink">https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/</div>
+  <div id="pjax-permalink"></div>
   
   
   <div id="minivaline-path">none</div>
@@ -397,12 +389,27 @@
       
       
 
+
 <div class='l_main'>
   
-
-  
-    <article id="post" class="post white-box reveal shadow floatable blur article-type-post" itemscope itemprop="blogPost">
+    
       
+  <section class="post-list ">
+    
+      
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box shadow floatable blur reveal ">
+  
 
 
   <section class='meta'>
@@ -412,11 +419,11 @@
       <div class="meta" id="header-meta">
         
           
-  <h1 class="title">
-    <a href="/blogs/xml%E8%A7%A3%E6%9E%90/">
-      xml解析
+  <h2 class="title">
+    <a href="/blogs/AOP_2/">
+      AOP技术(2)
     </a>
-  </h1>
+  </h2>
 
 
         
@@ -439,9 +446,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/XML/' rel="nofollow">
+    <a href='/categories/Spring/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>XML</p>
+      <p>Spring</p>
     </a>
   </div>
 
@@ -452,9 +459,36 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 23, 2020</p>
+    <p>发布于：Aug 1, 2020</p>
   </a>
 </div>
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span id="/blogs/AOP_2/" class="leancloud_visitors" data-flag-title="AOP技术(2)">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
 
             
           
@@ -472,369 +506,157 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          
-          
-          <a id="more"></a>
-
-
-
-<h1 id="1、XML概念"><a href="#1、XML概念" class="headerlink" title="1、XML概念"></a>1、XML概念</h1><p>一个完整的XML文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span>             </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>xml概念</strong>：</li>
-</ul>
-<ol>
-<li><p>XML指可扩展标记语言（Extensible Markup Language）； </p>
-</li>
-<li><p>XML是一种标记语言，很类似HTML； </p>
-</li>
-<li><p>XML的设计宗旨是传输数据，而非显示数据； </p>
-</li>
-<li><p>XML标签没有被预定义，您需要自行定义标签； </p>
-</li>
-<li><p>XML被设计为具有自我描述性； </p>
-</li>
-<li><p>XML是W3C的推荐标准</p>
-</li>
-</ol>
-<ul>
-<li><strong>xml特点：</strong></li>
-</ul>
-<ol>
-<li><p>XML是SGML的简化版本 </p>
-</li>
-<li><p>XML提示了数据本身的意义 </p>
-</li>
-<li><p>XML是可扩展的 </p>
-</li>
-<li><p>XML是跨平台的 </p>
-</li>
-<li><p>XML是结构化的 </p>
-</li>
-<li><p>XML是基于文本的 </p>
-</li>
-<li><p>XML的数据与其显示格式是分离的 </p>
-</li>
-<li><p>XML文档比HTML文档更容易访问</p>
-</li>
-<li><p>XML是一种树形存储结构</p>
-</li>
-</ol>
-<ul>
-<li><strong>xml与HTML的差异：</strong></li>
-</ul>
-<p>XML不是HTML的替代。XML和HTML为不同的目的而设计： </p>
-<ol>
-<li><p>XML被设计为传输和存储数据，其焦点是数据的内容； </p>
-</li>
-<li><p>HTML被设计用来显示数据，其焦点是数据的外观； </p>
-</li>
-<li><p>HTML旨在显示信息，而XML旨在传输信息。 </p>
-</li>
-<li><p>HTML是一个大小写不敏感的，XML是大小写敏感的。 </p>
-</li>
-<li><p>HTML有着固定的显示标准，XML显示是依赖应用灵活定义</p>
-</li>
-</ol>
-<ul>
-<li><strong>xml应用场景</strong></li>
-</ul>
-<ol>
-<li><p>作为系统或应用的配置文件使用，如tomcat中的web.xml </p>
-</li>
-<li><p>作为应用程序的数据存储文件或日志存储文件 </p>
-</li>
-<li><p>数据库的功能之一，支持XML存储 </p>
-</li>
-<li><p>WebService协议用语言，soap协议 </p>
-</li>
-<li><p>IM通信协议标准，如XMPP协议 </p>
-</li>
-<li><p>部分矢量图像存储格式，如果SVG图片 </p>
-</li>
-<li><p>部分流媒体协议，如果CML </p>
-</li>
-</ol>
-<h1 id="2、XML语法"><a href="#2、XML语法" class="headerlink" title="2、XML语法"></a>2、XML语法</h1><ol>
-<li><p><strong>所有XML元素都须有关闭标签 ，而不像部分的HTML标签</strong></p>
-</li>
-<li><p><strong>声明语句也可以不要</strong></p>
-</li>
-<li><p><strong>XML 标签对大小写敏感</strong></p>
-</li>
-<li><p><strong>必须正确嵌套</strong></p>
-</li>
-<li><p><strong>文档必须有根元素</strong></p>
-</li>
-<li><p><strong>属性值须加引号</strong></p>
-</li>
-<li><p><strong>转义字符</strong></p>
-</li>
-<li><p><strong>PCDATA</strong> <strong>是会被解析器解析的文本。这些文本将被解析器检查实体以及标记</strong></p>
-</li>
-<li><p><strong>CDATA</strong> <strong>是不会被解析器解析的文本</strong></p>
-</li>
-<li><p><strong>元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。</strong></p>
-</li>
-</ol>
-<h1 id="3、XML解析方式"><a href="#3、XML解析方式" class="headerlink" title="3、XML解析方式"></a>3、XML解析方式</h1><p>两种方式：SAX,DOM</p>
-<img src="/blogs/xml%E8%A7%A3%E6%9E%90/image-20200801192417221.png" class="" title="SAX VS DOM">
-
-<p>SAX适于处理下面的问题： </p>
-<ul>
-<li>对大型文档进行处理。 </li>
-<li>只需要文档的部分内容，或者只需要从文档中得到特定信息。 </li>
-<li>想创建自己的对象模型的时候。 </li>
-</ul>
-<p>DOM适于处理下面的问题： </p>
-<ul>
-<li><p>需要对文档进行修改 </p>
-</li>
-<li><p>需要随机对文档进行访问，例如XSLT解析器。 </p>
-</li>
-<li><p>需要校验XML的合法性，完整性</p>
-</li>
-</ul>
-<h1 id="4、Java解析XML"><a href="#4、Java解析XML" class="headerlink" title="4、Java解析XML"></a>4、Java解析XML</h1><ol>
-<li><strong>DOM解析器</strong></li>
-</ol>
-<p>​        由W3C提供的接口，它将整个XML文档读入内存，构建一个DOM树来对各个节点(Node)进行操作。（参见代码） </p>
-<ol start="2">
-<li><strong>SAX解析器</strong></li>
-</ol>
-<p>​        SAX不用将整个文档加载到内存，基于事件驱动的API(Observer模式)，用户只需要注册自己感兴趣的事件即可。SAX提供EntityResolver, DTDHandler, ContentHandler, ErrorHandler接口，分别用于监听解析实体 事件、DTD处理事件、正文处理事件和处理出错事件，与AWT类似， SAX还提供了一个对这4个接口默认的类DefaultHandler（这里的默认实 现，其实就是一个空方法），一般只要继承DefaultHandler，重写自己感兴趣的事件即可。 </p>
-<ol start="3">
-<li><strong>JDOM解析器</strong></li>
-</ol>
-<p>​        JDOM与DOM非常类似，它是处理XML的纯JAVA API，API大量使用了Collections类，且JDOM仅使用具体类而不使用接口。 JDOM 它自身不包含解析器。它通常使用 SAX2 解析器来解析和验证输入 XML 文档 （尽管它还可以将以前构造的 DOM 表示作为输入）。它包含一些转换器以将 JDOM 表示输出成 SAX2 事件流、DOM 模型或 XML 文本文档  </p>
-<ol start="4">
-<li><strong>DOM4J解析器</strong> </li>
-</ol>
-<p>​        DOM4J是目前在xml解析方面是最优秀的(Hibernate、Sun的 JAXM也都使用dom4j来解析XML)，它合并了许多超出基本 XML 文档表示的功能，包括集成的 XPath 支持、XML Schema 支持以及用于大文档或流化文档的基于事件的处理。</p>
-<h1 id="5、JDOM，DOM4J解析实例"><a href="#5、JDOM，DOM4J解析实例" class="headerlink" title="5、JDOM，DOM4J解析实例"></a>5、JDOM，DOM4J解析实例</h1><h2 id="5-1-JDOM"><a href="#5-1-JDOM" class="headerlink" title="5.1 JDOM"></a>5.1 JDOM</h2><p>被解析的xml文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">database</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:mysql://localhost:3306/studentinfo?characterEncoding=UTF-8<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>root<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pwd</span>&gt;</span>123123<span class="tag">&lt;/<span class="name">pwd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driver</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">driver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">database</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>JDOM解析：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> lasting = System.currentTimeMillis(); </span><br><span class="line">     <span class="keyword">try</span> &#123; </span><br><span class="line">       String path=DOM4Java.class.getClassLoader().getResource(&quot;&quot;)</span><br><span class="line">             .toString().substring(<span class="number">6</span>);</span><br><span class="line">       </span><br><span class="line">        SAXBuilder builder = <span class="keyword">new</span> SAXBuilder();  </span><br><span class="line">      Document doc = builder.build(<span class="keyword">new</span> File(path+<span class="string">&quot;database.xml&quot;</span>));  <span class="comment">//获得xml文件的位置</span></span><br><span class="line">      </span><br><span class="line">       Element foo = doc.getRootElement();<span class="comment">//得到根节点  </span></span><br><span class="line">      List allChildren = foo.getChildren();  </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;allChildren.size();i++)</span><br><span class="line">     &#123;  </span><br><span class="line">       <span class="comment">//遍历子节点</span></span><br><span class="line">       System.out.println(((Element)allChildren.get(i)).getText());</span><br><span class="line">     &#125;</span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">               e.printStackTrace(); </span><br><span class="line">     &#125;</span><br><span class="line">      System.out.println(<span class="string">&quot;运行时间：&quot;</span> + (System.currentTimeMillis() - lasting) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<img src="/blogs/xml%E8%A7%A3%E6%9E%90/image-20200801194346071.png" class="" title="JDOM解析">
-
-
-
-<h2 id="5-2-DOM4J"><a href="#5-2-DOM4J" class="headerlink" title="5.2 DOM4J"></a>5.2 DOM4J</h2><p>xml文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Result</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2005&quot;</span>&gt;</span>A1<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>GZ<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2004&quot;</span>&gt;</span>A2<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XG<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2014&quot;</span>&gt;</span>A4<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XGgggg<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Result</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>DOM4J:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DOM4Java</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       </span><br><span class="line">      <span class="keyword">long</span> lasting = System.currentTimeMillis(); </span><br><span class="line">        <span class="keyword">try</span> &#123; </span><br><span class="line">          </span><br><span class="line">          String path=DOM4Java.class.getClassLoader().getResource(&quot;&quot;)</span><br><span class="line">            .toString().substring(<span class="number">6</span>);<span class="comment">// 获得绝对路径</span></span><br><span class="line">          </span><br><span class="line">         File f= <span class="keyword">new</span> File(path+<span class="string">&quot;demo.xml&quot;</span>); </span><br><span class="line">         SAXReader reader = <span class="keyword">new</span> SAXReader(); </span><br><span class="line">          </span><br><span class="line">         Document doc = reader.read(f); </span><br><span class="line">         </span><br><span class="line">         Element root = doc.getRootElement(); <span class="comment">//得到根节点</span></span><br><span class="line">         System.out.println(root.getName());</span><br><span class="line">         </span><br><span class="line">         Iterator it = root.elementIterator(<span class="string">&quot;VALUE&quot;</span>);<span class="comment">//迭代器，获取root下所有value 子标签</span></span><br><span class="line">         <span class="keyword">while</span>(it.hasNext()) </span><br><span class="line">          &#123; </span><br><span class="line">             Element foo = (Element) it.next(); <span class="comment">//得到value</span></span><br><span class="line">             Element subfoo=foo.element(<span class="string">&quot;NO&quot;</span>); <span class="comment">//获取value 下NO 子标签</span></span><br><span class="line">              System.out.print(<span class="string">&quot;车牌号码:&quot;</span> + foo.elementText(<span class="string">&quot;NO&quot;</span>)+<span class="string">&quot; 属性：&quot;</span></span><br><span class="line">             +subfoo.attributeValue(<span class="string">&quot;DATE&quot;</span>)); </span><br><span class="line">           System.out.println(<span class="string">&quot;车主地址:&quot;</span> + foo.elementText(<span class="string">&quot;ADDR&quot;</span>)); </span><br><span class="line">          &#125;</span><br><span class="line">         System.out.println(<span class="string">&quot;-----------------------------------&quot;</span>);</span><br><span class="line">         Element e=root.element(<span class="string">&quot;note&quot;</span>);</span><br><span class="line">           System.out.println(e.elementText(<span class="string">&quot;NO&quot;</span>));</span><br><span class="line">           System.out.println(e.elementText(<span class="string">&quot;ADDR&quot;</span>));</span><br><span class="line">           Element sube = e.element(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">           System.out.println(sube.attributeValue(<span class="string">&quot;DATE&quot;</span>));</span><br><span class="line">         </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)</span><br><span class="line">          &#123; </span><br><span class="line">              e.printStackTrace(); </span><br><span class="line">          &#125; </span><br><span class="line">    System.out.println(<span class="string">&quot;运行时间：&quot;</span> + (System.currentTimeMillis() - lasting) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<img src="/blogs/xml%E8%A7%A3%E6%9E%90/image-20200801194458135.png" class="" title="DOM4J解析">
-
-
-          
-            <div class='article_footer'>
-              
-                
-  
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术</p>
+      
+    </div>
     
+      
+        <a class= "readmore" href="/blogs/AOP_2/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
+      
     
+  </section>
+</article>
 
-
-
-  
-
-  
-    
-    
-
-
-
-  
-
-  
-    
-    
-
-<section class="widget copyright  desktop mobile">
-  <div class='content'>
-    
-      <blockquote>
+          </div>
         
-          
-            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-          
-        
-          
-            <p>本文永久链接是：<a href=https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/>https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/</a></p>
-          
-        
-      </blockquote>
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode  desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-  </div>
-</section>
-
-  
-
-
-              
-            </div>
-          
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-01T21:12:01+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 1, 2020</p>
+          <div class='post-wrapper'>
+            <article class="post white-box shadow floatable blur reveal ">
+  
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h2 class="title">
+    <a href="/blogs/AOP_1/">
+      AOP技术(1)
+    </a>
+  </h2>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a class='author' href="https://gigsider.com" rel="nofollow">
+    <img no-lazy src="/img/Avatar.jpg">
+    <p>柴德Fun</p>
   </a>
 </div>
 
-        
-      
-        
+            
           
+            
+              
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>基础知识</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/XML/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>XML</p></a></div>
-
-
-        
-      
-        
-          
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/&title=xml解析 - 柴德Fun&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/&title=xml解析 - 柴德Fun&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/xml%E8%A7%A3%E6%9E%90/&title=xml解析 - 柴德Fun&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png">
-          
-        </a>
-      
-    
+  <div class='new-meta-item category'>
+    <a href='/categories/Spring/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Spring</p>
+    </a>
   </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 31, 2020</p>
+  </a>
 </div>
 
+            
+          
+            
+              
 
-
-        
+            
+          
+            
+              
+  <div class="new-meta-item browse valine">
+    <a class='notlink'>
+      <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
       
-    </div>
+      <span id="/blogs/AOP_1/" class="leancloud_visitors" data-flag-title="AOP技术(1)">
+      <p>
+        <span class="leancloud-visitors-count"></span>
+      </p>
+      </span>
+    </a>
+  </div>
+
+
+            
+          
+            
+              
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
   </section>
 
 
-        
-        
-          <div class="prev-next">
-            
-              <a class='prev' href='/blogs/Java-IO/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>IO流</p>
-                <p class='content'>​    
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​     摘要：静态代理模式实现的AOP、动态代理模式实现的AOP</p>
+      
+    </div>
+    
+      
+        <a class= "readmore" href="/blogs/AOP_1/">
+          阅读全文 <i class="fas fa-chevron-right"></i>
+        </a>
+      
+    
+  </section>
+</article>
 
-
-
-
-1、流的概念1.1流（1）流是一个无结构化的数据组成的序列，流中的数据没有任何格式和含义，只是以字节或字符形式进行流入或流出。
-（2）数据流的流入和流出都是以程序本身作为核心...</p>
-              </a>
-            
-            
-              <a class='next' href='/blogs/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E9%87%8D%E7%82%B9%E7%9F%A5%E8%AF%86/'>
-                <p class='title'>计算机网络重点知识<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>
-
-
-
-1、前言​        计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建立的规则、标准或者说是约定的集合。因为不同用户的数据终端可能采取的字符集是不...</p>
-              </a>
-            
           </div>
         
-      </section>
-    </article>
-  
-
+      
+    
+  </section>
   
     
-  <article class="post white-box reveal comments shadow floatable blur">
-    <section class="article typo">
-      <p ct><i class='fas fa-comments'></i> 评论</p>
-      
-      <section id="comments">
-        <div id="minivaline_container">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-      </section>
-    </section>
-  </article>
-
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
+    
+  
 
 </div>
 <aside class='l_side'>
@@ -906,29 +728,6 @@
   
     
     
-
-
-
-  <section class="widget toc-wrapper shadow floatable blur desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-JDOM"><span class="toc-text">5.1 JDOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-DOM4J"><span class="toc-text">5.2 DOM4J</span></a></li></ol>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
   
 
   <section class="widget category shadow floatable blur desktop">
@@ -954,19 +753,19 @@
             ><div class='name'>MarkDown</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/categories/Spring/" href="/categories/Spring/"
+            id="categoriesSpring"
+            ><div class='name'>Spring</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Web/" href="/categories/Web/"
+            id="categoriesWeb"
+            ><div class='name'>Web</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/categories/XML/" href="/categories/XML/"
             id="categoriesXML"
             ><div class='name'>XML</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/spring%E6%A1%86%E6%9E%B6/" href="/categories/spring%E6%A1%86%E6%9E%B6/"
-            id="categoriesspringE6A186E69EB6"
-            ><div class='name'>spring框架</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="categoriesE8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>计算机网络</div><div class='badge'>(1)</div></a></li>
         
       </ul>
     </div>
@@ -990,10 +789,12 @@
 
 
     <div class='content'>
-      <a href="/tags/AOP/" style="font-size: 19px; color: #777">AOP</a> <a href="/tags/IO%E6%B5%81/" style="font-size: 14px; color: #999">IO流</a> <a href="/tags/JAVA/" style="font-size: 24px; color: #555">JAVA</a> <a href="/tags/MarkDown/" style="font-size: 14px; color: #999">MarkDown</a> <a href="/tags/Spring/" style="font-size: 19px; color: #777">Spring</a> <a href="/tags/XML/" style="font-size: 14px; color: #999">XML</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" style="font-size: 14px; color: #999">基础知识</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 19px; color: #777">学习笔记</a> <a href="/tags/%E6%80%BB%E7%BB%93/" style="font-size: 14px; color: #999">总结</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 14px; color: #999">网络编程</a>
+      <a href="/tags/AOP/" style="font-size: 19px; color: #777">AOP</a> <a href="/tags/IO%E6%B5%81/" style="font-size: 14px; color: #999">IO流</a> <a href="/tags/JAVA/" style="font-size: 24px; color: #555">JAVA</a> <a href="/tags/MarkDown/" style="font-size: 14px; color: #999">MarkDown</a> <a href="/tags/Spring/" style="font-size: 19px; color: #777">Spring</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/XML/" style="font-size: 14px; color: #999">XML</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 19px; color: #777">学习笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 14px; color: #999">网络编程</a>
     </div>
   </section>
 
+
+  
 
   
 

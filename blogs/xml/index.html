@@ -16,13 +16,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Java NIO - 柴德Fun</title>
+  <title>xml解析 - 柴德Fun</title>
   
-    <meta name="keywords" content="JAVA,学习笔记">
+    <meta name="keywords" content="XML">
   
 
   
-    <meta name="description" content="​        摘要：NIO与传统IO、NIO构成组件、基于NIO实现的多人聊天">
+    <meta name="description" content="​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j">
   
 
   <!-- feed -->
@@ -355,9 +355,9 @@
 
 <div id="pjax-data" style="display: none">
   <div id="pjax-ispage">true</div>
-  <div id="pjax-pageTitle">Java NIO</div>
+  <div id="pjax-pageTitle">xml解析</div>
   <div id="pjax-enable-cover">true</div>
-  <div id="pjax-permalink">https://gigsider.com/blogs/Java-NIO/</div>
+  <div id="pjax-permalink">https://gigsider.com/blogs/xml/</div>
   
   
   <div id="minivaline-path">none</div>
@@ -407,8 +407,8 @@
         
           
   <h1 class="title">
-    <a href="/blogs/Java-NIO/">
-      Java NIO
+    <a href="/blogs/xml/">
+      xml解析
     </a>
   </h1>
 
@@ -433,9 +433,9 @@
               
   
   <div class='new-meta-item category'>
-    <a href='/categories/JAVA/' rel="nofollow">
+    <a href='/categories/XML/' rel="nofollow">
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <p>JAVA</p>
+      <p>XML</p>
     </a>
   </div>
 
@@ -446,7 +446,7 @@
               <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 31, 2020</p>
+    <p>发布于：May 23, 2020</p>
   </a>
 </div>
 
@@ -470,90 +470,163 @@
         <div class="article-entry" itemprop="articleBody">
           
           
-          <p>​        摘要：NIO与传统IO、NIO构成组件、基于NIO实现的多人聊天</p>
+          <p>​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j</p>
 <a id="more"></a>
 
 <p>​    </p>
-<h1 id="1、NIO概念"><a href="#1、NIO概念" class="headerlink" title="1、NIO概念"></a>1、NIO概念</h1><h2 id="1-1-Unix定义了五种-I-O-模型"><a href="#1-1-Unix定义了五种-I-O-模型" class="headerlink" title="1.1 Unix定义了五种 I/O 模型"></a>1.1 Unix定义了五种 I/O 模型</h2><ul>
-<li>阻塞 I/O</li>
-<li>非阻塞 I/O</li>
-<li>I/O 复用</li>
-<li>信号驱动 I/O</li>
-<li>异步 I/O</li>
-</ul>
-<h3 id="1-1-1-阻塞（Block）和非阻塞（NonBlock）"><a href="#1-1-1-阻塞（Block）和非阻塞（NonBlock）" class="headerlink" title="1.1.1 阻塞（Block）和非阻塞（NonBlock）"></a>1.1.1 阻塞（Block）和非阻塞（NonBlock）</h3><p>阻塞和非阻塞是进程在访问数据的时候，数据是否准备就绪的一种处理方式：<br>阻塞：需要等待缓冲区中的数据准备好过后才处理其他的事情，否則一直等待在那里。<br>非阻塞：进程访问数据缓冲区的时候，如果数据没有准备好则直接返回，不会等待。</p>
-<h3 id="1-1-2-同步与异步"><a href="#1-1-2-同步与异步" class="headerlink" title="1.1.2 同步与异步"></a>1.1.2 同步与异步</h3><p>一个进程的IO调用步骤大致如下：</p>
-<p>1、进程向操作系统请求数据</p>
-<p>2、操作系统把外部数据加载到内核的缓冲区中</p>
-<p>3、操作系统把内核的缓冲区拷贝到进程的缓冲区 </p>
-<p>4、进程获得数据完成自己的功能</p>
-<p>当操作系统在把外部数据放到进程缓冲区的这段时间（即上述的第二，三步），如果应用进程是挂起等待的，那么就是同步IO，反之，就是异步IO</p>
-<p>Java中IO分为：<br>BIO （Blocking  IO）<br>NIO （Non-blocking  IO/New IO）<br>AIO （Asynchronous IO/NIO2）</p>
-<h2 id="1-2-NIO模型图"><a href="#1-2-NIO模型图" class="headerlink" title="1.2 NIO模型图"></a>1.2 NIO模型图</h2><img src="/blogs/Java-NIO/image-20200730202046654.png" class="" title="image-20200730202046654">
+<h1 id="1、XML概念"><a href="#1、XML概念" class="headerlink" title="1、XML概念"></a>1、XML概念</h1><p>一个完整的XML文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span>             </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="2、-NIO与传统IO的区别"><a href="#2、-NIO与传统IO的区别" class="headerlink" title="2、 NIO与传统IO的区别"></a>2、 NIO与传统IO的区别</h1><img src="/blogs/Java-NIO/image-20200730202205711.png" class="" title="image-20200730202205711">
-
-<table>
-<thead>
-<tr>
-<th align="center">IO</th>
-<th align="center">NIO</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">面向流</td>
-<td align="center">面向缓冲</td>
-</tr>
-<tr>
-<td align="center">阻塞IO</td>
-<td align="center">非阻塞IO</td>
-</tr>
-<tr>
-<td align="center">无</td>
-<td align="center">selector</td>
-</tr>
-</tbody></table>
-<h2 id="2-1-面向流与缓冲"><a href="#2-1-面向流与缓冲" class="headerlink" title="2.1 面向流与缓冲"></a>2.1 面向流与缓冲</h2><p>​        IO是面向流的，NIO是面向缓冲区的。 Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先将它缓存到一个缓冲区。 Java NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性</p>
-<h2 id="2-2-阻塞与非阻塞"><a href="#2-2-阻塞与非阻塞" class="headerlink" title="2.2 阻塞与非阻塞"></a>2.2 阻塞与非阻塞</h2><p>​        Java IO的各种流是阻塞的。这意味着，当一个线程调用read() 或 write()时，该线程被阻塞，直到有一些数据被读取，或数据完全写入。该线程在此期间不能再干任何事情了。 Java NIO的非阻塞模式，使一个线程从某通道发送请求读取数据，但是它仅能得到目前可用的数据，如果目前没有数据可用时，就什么都不会获取。而不是保持线程阻塞，所以直至数据变的可以读取之前，该线程可以继续做其他的事情。 非阻塞写也是如此。一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。 线程通常将非阻塞IO的空闲时间用于在其它通道上执行IO操作，所以一个单独的线程现在可以管理多个输入和输出通道（channel）。</p>
-<h2 id="2-3-选择器（Selector）"><a href="#2-3-选择器（Selector）" class="headerlink" title="2.3 选择器（Selector）"></a>2.3 选择器（Selector）</h2><p>​        Java NIO的选择器允许一个单独的线程来监视多个输入通道，你可以注册多个通道使用一个选择器，然后使用一个单独的线程来“选择”通道：这些通道里已经有可以处理的输入，或者选择已准备写入的通道。这种选择机制，使得一个单独的线程很容易来管理多个通道。</p>
-<h1 id="3、NIO构成组件"><a href="#3、NIO构成组件" class="headerlink" title="3、NIO构成组件"></a>3、NIO构成组件</h1><p>Java NIO Channel通道和流非常相似，主要有以下几点区别：<br>a.通道可以读也可以写，多功能高速通道，流一般来说是单向的（只能读或者写,如输入流与输出流）；<br>b.通道可以异步读写；<br>c.通道总是基于缓冲区Buffer来读写；<br>正如上面提到的，我们可以从通道中读取数据，写入到buffer，也可以中buffer内读数据，写入到通道中；下面有个示意图：</p>
-<img src="/blogs/Java-NIO/image-20200730202755347.png" class="" title="image-20200730202755347">
-
-<p>Channel的实现：</p>
 <ul>
-<li><p>FileChannel   </p>
+<li><strong>xml概念</strong>：</li>
+</ul>
+<ol>
+<li><p>XML指可扩展标记语言（Extensible Markup Language）； </p>
 </li>
-<li><p>DatagramChannel </p>
+<li><p>XML是一种标记语言，很类似HTML； </p>
 </li>
-<li><p>SocketChannel  </p>
+<li><p>XML的设计宗旨是传输数据，而非显示数据； </p>
 </li>
-<li><p>ServerSocketChannel</p>
+<li><p>XML标签没有被预定义，您需要自行定义标签； </p>
+</li>
+<li><p>XML被设计为具有自我描述性； </p>
+</li>
+<li><p>XML是W3C的推荐标准</p>
+</li>
+</ol>
+<ul>
+<li><strong>xml特点：</strong></li>
+</ul>
+<ol>
+<li><p>XML是SGML的简化版本 </p>
+</li>
+<li><p>XML提示了数据本身的意义 </p>
+</li>
+<li><p>XML是可扩展的 </p>
+</li>
+<li><p>XML是跨平台的 </p>
+</li>
+<li><p>XML是结构化的 </p>
+</li>
+<li><p>XML是基于文本的 </p>
+</li>
+<li><p>XML的数据与其显示格式是分离的 </p>
+</li>
+<li><p>XML文档比HTML文档更容易访问</p>
+</li>
+<li><p>XML是一种树形存储结构</p>
+</li>
+</ol>
+<ul>
+<li><strong>xml与HTML的差异：</strong></li>
+</ul>
+<p>XML不是HTML的替代。XML和HTML为不同的目的而设计： </p>
+<ol>
+<li><p>XML被设计为传输和存储数据，其焦点是数据的内容； </p>
+</li>
+<li><p>HTML被设计用来显示数据，其焦点是数据的外观； </p>
+</li>
+<li><p>HTML旨在显示信息，而XML旨在传输信息。 </p>
+</li>
+<li><p>HTML是一个大小写不敏感的，XML是大小写敏感的。 </p>
+</li>
+<li><p>HTML有着固定的显示标准，XML显示是依赖应用灵活定义</p>
+</li>
+</ol>
+<ul>
+<li><strong>xml应用场景</strong></li>
+</ul>
+<ol>
+<li><p>作为系统或应用的配置文件使用，如tomcat中的web.xml </p>
+</li>
+<li><p>作为应用程序的数据存储文件或日志存储文件 </p>
+</li>
+<li><p>数据库的功能之一，支持XML存储 </p>
+</li>
+<li><p>WebService协议用语言，soap协议 </p>
+</li>
+<li><p>IM通信协议标准，如XMPP协议 </p>
+</li>
+<li><p>部分矢量图像存储格式，如果SVG图片 </p>
+</li>
+<li><p>部分流媒体协议，如果CML </p>
+</li>
+</ol>
+<h1 id="2、XML语法"><a href="#2、XML语法" class="headerlink" title="2、XML语法"></a>2、XML语法</h1><ol>
+<li><p><strong>所有XML元素都须有关闭标签 ，而不像部分的HTML标签</strong></p>
+</li>
+<li><p><strong>声明语句也可以不要</strong></p>
+</li>
+<li><p><strong>XML 标签对大小写敏感</strong></p>
+</li>
+<li><p><strong>必须正确嵌套</strong></p>
+</li>
+<li><p><strong>文档必须有根元素</strong></p>
+</li>
+<li><p><strong>属性值须加引号</strong></p>
+</li>
+<li><p><strong>转义字符</strong></p>
+</li>
+<li><p><strong>PCDATA</strong> <strong>是会被解析器解析的文本。这些文本将被解析器检查实体以及标记</strong></p>
+</li>
+<li><p><strong>CDATA</strong> <strong>是不会被解析器解析的文本</strong></p>
+</li>
+<li><p><strong>元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。</strong></p>
+</li>
+</ol>
+<h1 id="3、XML解析方式"><a href="#3、XML解析方式" class="headerlink" title="3、XML解析方式"></a>3、XML解析方式</h1><p>两种方式：SAX,DOM</p>
+<img src="/blogs/xml/image-20200801192417221.png" class="" title="SAX VS DOM">
+
+<p>SAX适于处理下面的问题： </p>
+<ul>
+<li>对大型文档进行处理。 </li>
+<li>只需要文档的部分内容，或者只需要从文档中得到特定信息。 </li>
+<li>想创建自己的对象模型的时候。 </li>
+</ul>
+<p>DOM适于处理下面的问题： </p>
+<ul>
+<li><p>需要对文档进行修改 </p>
+</li>
+<li><p>需要随机对文档进行访问，例如XSLT解析器。 </p>
+</li>
+<li><p>需要校验XML的合法性，完整性</p>
 </li>
 </ul>
-<p>FileChannel用于文件的数据读写。 </p>
-<p>DatagramChannel用于UDP的数据读写。 </p>
-<p>SocketChannel用于TCP的数据读写。 </p>
-<p>ServerSocketChannel允许我们监听TCP链接请求，每个请求会创建会一个SocketChannel.</p>
-<p>Buffer用于和Channel交互。我们从channel中读取数据到buffers里，从buffer把数据写入到channel，Buffer本质上就是一块内存区，可以用来写入数据，并在稍后读取出来。这块内存被NIO Buffer包裹起来，对外提供一系列的读写方便开发的接口。</p>
-<h2 id="3-1-Buffer基本用法"><a href="#3-1-Buffer基本用法" class="headerlink" title="3.1 Buffer基本用法"></a>3.1 Buffer基本用法</h2><p>利用Buffer读写数据，通常遵循四个步骤：</p>
-<ol>
-<li>把数据写入buffer；</li>
-<li>调用flip；</li>
-<li>从Buffer中读取数据；</li>
-<li>调用buffer.clear()或者buffer.compact()</li>
+<h1 id="4、Java解析XML"><a href="#4、Java解析XML" class="headerlink" title="4、Java解析XML"></a>4、Java解析XML</h1><ol>
+<li><strong>DOM解析器</strong></li>
 </ol>
-<p>当写入数据到buffer中时，buffer会记录已经写入的数据大小。当需要读数据时，通过flip()方法把buffer从写模式调整为读模式；在读模式下，可以读取所有已经写入的数据。</p>
-<p>当读取完数据后，需要清空buffer，以满足后续写入操作。清空buffer有两种方式：调用clear()或compact()方法。clear会清空整个buffer，compact则只清空已读取的数据，未被读取的数据会被移动到buffer的开始位置，写入位置则近跟着未读数据之后。</p>
-<p>Buffer有三个属性:<br>容量，位置，上限（capacity, position , limit）<br>buffer缓冲区实质上就是一块内存，用于写入数据，也供后续再次读取数据。这块内存被NIO Buffer管理，并提供一系列的方法用于更简单的操作这块内存。</p>
-<h2 id="3-2-Java-NIO-Selector"><a href="#3-2-Java-NIO-Selector" class="headerlink" title="3.2 Java NIO Selector"></a>3.2 Java NIO Selector</h2><p>​        Selector是Java NIO中的一个组件，用于检查一个或多个NIO Channel的状态是否处于可读、可写。因此此可以实现单线程管理多个channels，也就是可以管理多个网络连接。</p>
-<p>1.创建<br>        要使用必须先创建一个：<br>        创建一个selector可以通过selector.open()方法</p>
-<p>2.注册<br>        如果要监测channel,必须先把channel注册到Selector上，这个操作使用channel.register(),</p>
-<p>3.监测<br>        我们关注的channel状态，有四种基础类型可供监听：（观察客人发来的需求）<br> Connect,  Accept, Read ,Write 通过selectedKeys()，可以获取所有channel的相关信息，包括channel本身，以及channel的状态等信息，知道了channel的状态，我们就可以对channel进行相应的操作。</p>
-<h1 id="4、基于NIO实现的多人聊天"><a href="#4、基于NIO实现的多人聊天" class="headerlink" title="4、基于NIO实现的多人聊天"></a>4、基于NIO实现的多人聊天</h1><h2 id="4-1-服务端"><a href="#4-1-服务端" class="headerlink" title="4.1 服务端"></a>4.1 服务端</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NIOSelectorDemo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//创建ServerSocketChannel</span></span><br><span class="line">        ServerSocketChannel server = ServerSocketChannel.open();</span><br><span class="line">        <span class="comment">//绑定9090端口</span></span><br><span class="line">        server.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">9090</span>));</span><br><span class="line">        <span class="comment">//设置为非阻塞</span></span><br><span class="line">        server.configureBlocking(<span class="keyword">false</span>);    </span><br><span class="line">        </span><br><span class="line">        <span class="comment">//创建Selector</span></span><br><span class="line">        Selector selector = Selector.open();    </span><br><span class="line">        <span class="comment">//当serversocket有连接请求时，监控这个事件</span></span><br><span class="line">        server.register(selector, SelectionKey.OP_ACCEPT);    </span><br><span class="line">        <span class="comment">//创建SocketChannel的ArrayList用于管理客户端与服务端的连接</span></span><br><span class="line">        ArrayList&lt;SocketChannel&gt; clients = <span class="keyword">new</span> ArrayList&lt;SocketChannel&gt;();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//阻塞，当至少有一个channel上有事件发生时，返回</span></span><br><span class="line">            <span class="comment">//selector.select()返回了，意味着channel发生可处理事件</span></span><br><span class="line">            selector.select();    </span><br><span class="line">            </span><br><span class="line">            <span class="comment">//获得可处理的事件selectionKeys（包含目标channel）</span></span><br><span class="line">            Set&lt;SelectionKey&gt; keys = selector.selectedKeys();    </span><br><span class="line">            Iterator&lt;SelectionKey&gt; it = keys.iterator();</span><br><span class="line">            <span class="keyword">while</span>( it.hasNext() )</span><br><span class="line">            &#123;</span><br><span class="line">                SelectionKey key = it.next();</span><br><span class="line">                it.remove();</span><br><span class="line">                </span><br><span class="line">                <span class="comment">//表示可接收请求</span></span><br><span class="line">                <span class="keyword">if</span>(key.isAcceptable())</span><br><span class="line">                &#123;</span><br><span class="line">                    ServerSocketChannel socket = (ServerSocketChannel)key.channel();</span><br><span class="line">                    <span class="comment">//接收到客户端请求时生成SocketChannel对象，用于和客户的数据传输</span></span><br><span class="line">                    SocketChannel client = socket.accept();</span><br><span class="line">                    <span class="comment">//设置为非阻塞</span></span><br><span class="line">                    client.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">                    <span class="comment">//注册进Selector</span></span><br><span class="line">                    client.register(selector, SelectionKey.OP_READ);</span><br><span class="line">                    <span class="comment">//向客户端发送消息“hello”</span></span><br><span class="line">                    ByteBuffer buf = ByteBuffer.wrap(<span class="string">&quot;hello&quot;</span>.getBytes());</span><br><span class="line">                    client.write(buf);</span><br><span class="line">                    <span class="comment">//将新客户端添加到客户列表里</span></span><br><span class="line">                    clients.add(client);    </span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(key.isReadable())</span><br><span class="line">                &#123;</span><br><span class="line">                    SocketChannel client = (SocketChannel)key.channel();</span><br><span class="line">                    <span class="comment">//接收来自客户端的数据，组装成msg</span></span><br><span class="line">                    ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">                    client.read(buf);</span><br><span class="line">                    buf.flip();</span><br><span class="line">                    String msg = client.getRemoteAddress()+<span class="string">&quot;==&gt;&quot;</span>+<span class="keyword">new</span> String(buf.array(),<span class="number">0</span>,buf.limit());</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">//将msg发送给所有客户端</span></span><br><span class="line">                    buf.clear();</span><br><span class="line">                    buf.put(msg.getBytes());</span><br><span class="line">                    buf.flip();</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; clients.size(); i++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        SocketChannel c = clients.get(i);</span><br><span class="line">                        c.write(buf);</span><br><span class="line">                        buf.rewind();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        由W3C提供的接口，它将整个XML文档读入内存，构建一个DOM树来对各个节点(Node)进行操作。（参见代码） </p>
+<ol start="2">
+<li><strong>SAX解析器</strong></li>
+</ol>
+<p>​        SAX不用将整个文档加载到内存，基于事件驱动的API(Observer模式)，用户只需要注册自己感兴趣的事件即可。SAX提供EntityResolver, DTDHandler, ContentHandler, ErrorHandler接口，分别用于监听解析实体 事件、DTD处理事件、正文处理事件和处理出错事件，与AWT类似， SAX还提供了一个对这4个接口默认的类DefaultHandler（这里的默认实 现，其实就是一个空方法），一般只要继承DefaultHandler，重写自己感兴趣的事件即可。 </p>
+<ol start="3">
+<li><strong>JDOM解析器</strong></li>
+</ol>
+<p>​        JDOM与DOM非常类似，它是处理XML的纯JAVA API，API大量使用了Collections类，且JDOM仅使用具体类而不使用接口。 JDOM 它自身不包含解析器。它通常使用 SAX2 解析器来解析和验证输入 XML 文档 （尽管它还可以将以前构造的 DOM 表示作为输入）。它包含一些转换器以将 JDOM 表示输出成 SAX2 事件流、DOM 模型或 XML 文本文档  </p>
+<ol start="4">
+<li><strong>DOM4J解析器</strong> </li>
+</ol>
+<p>​        DOM4J是目前在xml解析方面是最优秀的(Hibernate、Sun的 JAXM也都使用dom4j来解析XML)，它合并了许多超出基本 XML 文档表示的功能，包括集成的 XPath 支持、XML Schema 支持以及用于大文档或流化文档的基于事件的处理。</p>
+<h1 id="5、JDOM，DOM4J解析实例"><a href="#5、JDOM，DOM4J解析实例" class="headerlink" title="5、JDOM，DOM4J解析实例"></a>5、JDOM，DOM4J解析实例</h1><h2 id="5-1-JDOM"><a href="#5-1-JDOM" class="headerlink" title="5.1 JDOM"></a>5.1 JDOM</h2><p>被解析的xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">database</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:mysql://localhost:3306/studentinfo?characterEncoding=UTF-8<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>root<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pwd</span>&gt;</span>123123<span class="tag">&lt;/<span class="name">pwd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driver</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">driver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">database</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="4-2-客户端"><a href="#4-2-客户端" class="headerlink" title="4.2 客户端"></a>4.2 客户端</h2><h3 id="4-2-1-读线程"><a href="#4-2-1-读线程" class="headerlink" title="4.2.1 读线程"></a>4.2.1 读线程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> SocketChannel socket = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReadThread</span><span class="params">(SocketChannel socket)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">        <span class="keyword">this</span>.socket = socket;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> ret = socket.read(buffer);</span><br><span class="line">                <span class="keyword">if</span>(ret == -<span class="number">1</span>)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">                buffer.flip();</span><br><span class="line">                System.out.println(<span class="keyword">new</span> String(buffer.array(),<span class="number">0</span>,buffer.limit()));</span><br><span class="line">                </span><br><span class="line">                buffer.clear();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>JDOM解析：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> lasting = System.currentTimeMillis(); </span><br><span class="line">     <span class="keyword">try</span> &#123; </span><br><span class="line">       String path=DOM4Java.class.getClassLoader().getResource(&quot;&quot;)</span><br><span class="line">             .toString().substring(<span class="number">6</span>);</span><br><span class="line">       </span><br><span class="line">        SAXBuilder builder = <span class="keyword">new</span> SAXBuilder();  </span><br><span class="line">      Document doc = builder.build(<span class="keyword">new</span> File(path+<span class="string">&quot;database.xml&quot;</span>));  <span class="comment">//获得xml文件的位置</span></span><br><span class="line">      </span><br><span class="line">       Element foo = doc.getRootElement();<span class="comment">//得到根节点  </span></span><br><span class="line">      List allChildren = foo.getChildren();  </span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;allChildren.size();i++)</span><br><span class="line">     &#123;  </span><br><span class="line">       <span class="comment">//遍历子节点</span></span><br><span class="line">       System.out.println(((Element)allChildren.get(i)).getText());</span><br><span class="line">     &#125;</span><br><span class="line">     &#125; <span class="keyword">catch</span> (Exception e) &#123; </span><br><span class="line">               e.printStackTrace(); </span><br><span class="line">     &#125;</span><br><span class="line">      System.out.println(<span class="string">&quot;运行时间：&quot;</span> + (System.currentTimeMillis() - lasting) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-2-2-写线程"><a href="#4-2-2-写线程" class="headerlink" title="4.2.2 写线程"></a>4.2.2 写线程</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WriteThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> SocketChannel socket = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WriteThread</span><span class="params">(SocketChannel socket)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">        <span class="keyword">this</span>.socket = socket;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        ByteBuffer buffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line">        String msg = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            msg = scanner.nextLine();</span><br><span class="line">            buffer.clear();</span><br><span class="line">            buffer.put(msg.getBytes());</span><br><span class="line">            buffer.flip();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                socket.write(buffer);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<img src="/blogs/xml/image-20200801194346071.png" class="" title="JDOM解析">
+
+
+
+<h2 id="5-2-DOM4J"><a href="#5-2-DOM4J" class="headerlink" title="5.2 DOM4J"></a>5.2 DOM4J</h2><p>xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Result</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2005&quot;</span>&gt;</span>A1<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>GZ<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2004&quot;</span>&gt;</span>A2<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XG<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2014&quot;</span>&gt;</span>A4<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XGgggg<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Result</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>DOM4J:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DOM4Java</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       </span><br><span class="line">      <span class="keyword">long</span> lasting = System.currentTimeMillis(); </span><br><span class="line">        <span class="keyword">try</span> &#123; </span><br><span class="line">          </span><br><span class="line">          String path=DOM4Java.class.getClassLoader().getResource(&quot;&quot;)</span><br><span class="line">            .toString().substring(<span class="number">6</span>);<span class="comment">// 获得绝对路径</span></span><br><span class="line">          </span><br><span class="line">         File f= <span class="keyword">new</span> File(path+<span class="string">&quot;demo.xml&quot;</span>); </span><br><span class="line">         SAXReader reader = <span class="keyword">new</span> SAXReader(); </span><br><span class="line">          </span><br><span class="line">         Document doc = reader.read(f); </span><br><span class="line">         </span><br><span class="line">         Element root = doc.getRootElement(); <span class="comment">//得到根节点</span></span><br><span class="line">         System.out.println(root.getName());</span><br><span class="line">         </span><br><span class="line">         Iterator it = root.elementIterator(<span class="string">&quot;VALUE&quot;</span>);<span class="comment">//迭代器，获取root下所有value 子标签</span></span><br><span class="line">         <span class="keyword">while</span>(it.hasNext()) </span><br><span class="line">          &#123; </span><br><span class="line">             Element foo = (Element) it.next(); <span class="comment">//得到value</span></span><br><span class="line">             Element subfoo=foo.element(<span class="string">&quot;NO&quot;</span>); <span class="comment">//获取value 下NO 子标签</span></span><br><span class="line">              System.out.print(<span class="string">&quot;车牌号码:&quot;</span> + foo.elementText(<span class="string">&quot;NO&quot;</span>)+<span class="string">&quot; 属性：&quot;</span></span><br><span class="line">             +subfoo.attributeValue(<span class="string">&quot;DATE&quot;</span>)); </span><br><span class="line">           System.out.println(<span class="string">&quot;车主地址:&quot;</span> + foo.elementText(<span class="string">&quot;ADDR&quot;</span>)); </span><br><span class="line">          &#125;</span><br><span class="line">         System.out.println(<span class="string">&quot;-----------------------------------&quot;</span>);</span><br><span class="line">         Element e=root.element(<span class="string">&quot;note&quot;</span>);</span><br><span class="line">           System.out.println(e.elementText(<span class="string">&quot;NO&quot;</span>));</span><br><span class="line">           System.out.println(e.elementText(<span class="string">&quot;ADDR&quot;</span>));</span><br><span class="line">           Element sube = e.element(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">           System.out.println(sube.attributeValue(<span class="string">&quot;DATE&quot;</span>));</span><br><span class="line">         </span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)</span><br><span class="line">          &#123; </span><br><span class="line">              e.printStackTrace(); </span><br><span class="line">          &#125; </span><br><span class="line">    System.out.println(<span class="string">&quot;运行时间：&quot;</span> + (System.currentTimeMillis() - lasting) + <span class="string">&quot;毫秒&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<img src="/blogs/xml/image-20200801194458135.png" class="" title="DOM4J解析">
 
 
           
@@ -591,7 +664,7 @@
           
         
           
-            <p>本文永久链接是：<a href=https://gigsider.com/blogs/Java-NIO/>https://gigsider.com/blogs/Java-NIO/</a></p>
+            <p>本文永久链接是：<a href=https://gigsider.com/blogs/xml/>https://gigsider.com/blogs/xml/</a></p>
           
         
       </blockquote>
@@ -628,7 +701,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-02T09:28:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-02T09:30:26+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 2, 2020</p>
@@ -640,7 +713,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JAVA/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JAVA</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>学习笔记</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/XML/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>XML</p></a></div>
 
 
         
@@ -658,7 +731,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/Java-NIO/&title=Java NIO - 柴德Fun&summary=​        摘要：NIO与传统IO、NIO构成组件、基于NIO实现的多人聊天"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -670,7 +743,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/Java-NIO/&title=Java NIO - 柴德Fun&summary=​        摘要：NIO与传统IO、NIO构成组件、基于NIO实现的多人聊天"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -682,7 +755,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/Java-NIO/&title=Java NIO - 柴德Fun&summary=​        摘要：NIO与传统IO、NIO构成组件、基于NIO实现的多人聊天"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -706,16 +779,23 @@
         
           <div class="prev-next">
             
-              <a class='prev' href='/blogs/MarkDown-First-Met/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>MarkDown基础语法</p>
-                <p class='content'>MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于...</p>
+              <a class='prev' href='/blogs/Java-IO/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>IO流</p>
+                <p class='content'>​       摘要：File类、字节流和字符流、数据流、缓冲流、随即流、对象流
+
+
+​     
+1、流的概念1.1流（1）流是一个无结构化的数据组成的序列，流中的数据没有任何格式和含义，只是...</p>
               </a>
             
             
-              <a class='next' href='/blogs/Java-Web/'>
-                <p class='title'>Java网络编程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>​         Java语言作为最流行的网络编程语言，提供了强大的网络编程功能。
-​        使用Java语言可以编写底层的网络通信程序，这是通过java.net包中提供的InetAd...</p>
+              <a class='next' href='/blogs/Web-Points/'>
+                <p class='title'>计算机网络重点知识<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>​      摘要：网络层次的划分、OSI七层网络模型、IP地址、相关的协议
+
+
+​      
+1、前言​        计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进...</p>
               </a>
             
           </div>
@@ -831,7 +911,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-Unix%E5%AE%9A%E4%B9%89%E4%BA%86%E4%BA%94%E7%A7%8D-I-O-%E6%A8%A1%E5%9E%8B"><span class="toc-text">1.1 Unix定义了五种 I&#x2F;O 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-%E9%98%BB%E5%A1%9E%EF%BC%88Block%EF%BC%89%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E%EF%BC%88NonBlock%EF%BC%89"><span class="toc-text">1.1.1 阻塞（Block）和非阻塞（NonBlock）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-text">1.1.2 同步与异步</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-NIO%E6%A8%A1%E5%9E%8B%E5%9B%BE"><span class="toc-text">1.2 NIO模型图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E9%9D%A2%E5%90%91%E6%B5%81%E4%B8%8E%E7%BC%93%E5%86%B2"><span class="toc-text">2.1 面向流与缓冲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%98%BB%E5%A1%9E%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E"><span class="toc-text">2.2 阻塞与非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88Selector%EF%BC%89"><span class="toc-text">2.3 选择器（Selector）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Buffer%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">3.1 Buffer基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Java-NIO-Selector"><span class="toc-text">3.2 Java NIO Selector</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">4.1 服务端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">4.2 客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E8%AF%BB%E7%BA%BF%E7%A8%8B"><span class="toc-text">4.2.1 读线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%E5%86%99%E7%BA%BF%E7%A8%8B"><span class="toc-text">4.2.2 写线程</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-JDOM"><span class="toc-text">5.1 JDOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-DOM4J"><span class="toc-text">5.2 DOM4J</span></a></li></ol>
     </div>
   </section>
 
