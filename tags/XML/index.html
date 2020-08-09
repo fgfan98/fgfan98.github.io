@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#3.0-beta2'>
+<head hexo-theme='https://volantis.js.org/#3.0.0-rc.1'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -18,7 +18,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: XML - 柴德Fun</title>
+  <title>標籤：XML - 柴德Fun</title>
   
 
   
@@ -32,10 +32,21 @@
   
 
   <!-- link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
   
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css">
+
+  
+  
+    
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
+  
 
   
     
@@ -67,9 +78,7 @@
   
 </head>
 
-
-<body oncontextmenu="return popMenu(event);">
-
+<body>
   
   
   
@@ -151,7 +160,7 @@
   <div class='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
-      <ul class='switcher nav-list-h' id="pjax-header-nav-list">
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
           <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
@@ -171,14 +180,14 @@
       
 
 			<div class='menu navigation'>
-				<ul class='nav-list-h'>
+				<ul class='nav-list-h m-pc'>
           
           
           
             
             
               <li>
-                <a class="menuitem flat-box" href=/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
                   
                   
                   
@@ -194,7 +203,7 @@
             
             
               <li>
-                <a class="menuitem flat-box" href=/categories/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
                   
                   
                   
@@ -210,7 +219,7 @@
             
             
               <li>
-                <a class="menuitem flat-box" href=/tags/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
                   
                   
                   
@@ -226,7 +235,7 @@
             
             
               <li>
-                <a class="menuitem flat-box" href=/archives/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
                   
                   
                   
@@ -242,7 +251,7 @@
             
             
               <li>
-                <a class="menuitem flat-box" href=/friends/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
                   
                   
                   
@@ -258,7 +267,7 @@
             
             
               <li>
-                <a class="menuitem flat-box" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
                   
                   
                   
@@ -281,7 +290,7 @@
         </form>
       </div>
 
-			<ul class='switcher nav-list-h'>
+			<ul class='switcher nav-list-h m-phone'>
 				
 					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
 				
@@ -292,7 +301,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
                   
                   
                   
@@ -308,7 +317,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/categories/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
                   
                   
                   
@@ -324,7 +333,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/tags/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
                   
                   
                   
@@ -340,7 +349,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/archives/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
                   
                   
                   
@@ -356,7 +365,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/friends/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
                   
                   
                   
@@ -372,7 +381,7 @@
               
             
               <li>
-                <a class="menuitem flat-box" href=/about/
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
                   
                   
                   
@@ -400,45 +409,41 @@
   <div class="l_body">
     <div class='body-wrapper' id="pjax-container">
       
-        <!--此文件用来存放一些不方便取值的变量-->
-<!--思路大概是将值藏到重加载的区域内-->
-
-
-
-<div id="pjax-data" style="display: none">
-  <div id="pjax-ispage">false</div>
-  <div id="pjax-pageTitle"></div>
-  <div id="pjax-enable-cover">true</div>
-  <div id="pjax-permalink"></div>
-  
-  
-  <div id="minivaline-path">none</div>
-  <div id="minivaline-placeholder">none</div>
-  
-</div>
-
-
-<script>
-  // 处理封面 此时 jquery 还没加载
-  if ("blog" == "none") { // 移除封面
-    document.getElementsByClassName('cover')[0].style.display = "none";
-    document.getElementsByClassName('l_body')[0].classList.add("nocover");
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
-  } else {
-    if ("blog" == "blog") { // 半屏
-      document.getElementsByClassName('cover')[0].classList.remove("full");
-      document.getElementsByClassName('cover')[0].classList.add("half");
-      document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("blog" == "docs") { // 全屏
-      document.getElementsByClassName('cover')[0].classList.remove("half");
-      document.getElementsByClassName('cover')[0].classList.add("full");
-      document.getElementsByClassName('scroll-down')[0].style.display = "";
-    }
-    document.getElementsByClassName('cover')[0].style.display = "";
-    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover");
-    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show");
-  }
-</script>
+        <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">false</div> 
+  <div id="pjax-pageTitle"></div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path">none</div> 
+  <div id="pjax-comment-placeholder">none</div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("blog" == "none") { // 移除封面 
+    document.getElementsByClassName('cover')[0].style.display = "none"; 
+    document.getElementsByClassName('l_body')[0].classList.add("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("blog" == "blog") { // 半屏 
+      document.getElementsByClassName('cover')[0].classList.remove("full"); 
+      document.getElementsByClassName('cover')[0].classList.add("half"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("blog" == "docs") { // 全屏 
+      document.getElementsByClassName('cover')[0].classList.remove("half"); 
+      document.getElementsByClassName('cover')[0].classList.add("full"); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover')[0].style.display = ""; 
+    document.getElementsByClassName('l_body', 'show')[0].classList.remove("nocover"); 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
 
       
       
@@ -785,30 +790,63 @@
       
 
       
-        
-          
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
-
-          
-<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/locale/zh-cn.min.js"></script>
-
-        
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sun Aug 09 2020 20:01:13 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Sun Aug 09 2020 22:13:08 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2020-08-09 日</div>
           
         </div>
         
-        <script>
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = moment(new Date(lastUpDate)).fromNow();
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-08-09 日';
-          }
-        </script>
+        <script> 
+          function timeago(dateTimeStamp) { 
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示 
+              var hour = minute * 60; 
+              var day = hour * 24; 
+              var week = day * 7; 
+              var month = day * 30; 
+              var now = new Date().getTime(); //获取当前时间毫秒 
+              var diffValue = now - dateTimeStamp; //时间差 
+              if (diffValue < 0) { 
+                  return; 
+              } 
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月 
+              var hourC = diffValue / hour; 
+              var dayC = diffValue / day; 
+              var weekC = diffValue / week; 
+              var monthC = diffValue / month; 
+              if (monthC >= 1 && monthC <= 3) { 
+                  result = " " + parseInt(monthC) + " 月前" 
+              } else if (weekC >= 1 && weekC <= 3) { 
+                  result = " " + parseInt(weekC) + " 周前" 
+              } else if (dayC >= 1 && dayC <= 6) { 
+                  result = " " + parseInt(dayC) + " 天前" 
+              } else if (hourC >= 1 && hourC <= 23) { 
+                  result = " " + parseInt(hourC) + " 小时前" 
+              } else if (minC >= 1 && minC <= 59) { 
+                  result = " " + parseInt(minC) + " 分钟前" 
+              } else if (diffValue >= 0 && diffValue <= minute) { 
+                  result = "刚刚" 
+              } else { 
+                  var datetime = new Date(); 
+                  datetime.setTime(dateTimeStamp); 
+                  var Nyear = datetime.getFullYear(); 
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1; 
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate(); 
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours(); 
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes(); 
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds(); 
+                  result = Nyear + "-" + Nmonth + "-" + Ndate 
+              } 
+              return result; 
+          } 
+          var lastUpDate = document.getElementById('last-update').innerHTML; 
+          try { 
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate)); 
+          } catch (error) { 
+            document.getElementById('last-update-show').innerHTML = '2020-08-09 日'; 
+          } 
+        </script> 
         
       
     </div>
@@ -891,16 +929,16 @@
       
     
       
-        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
 </div>
       
     
       
-        Use
+        本站使用
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
+        作為主題，總訪問量為
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
+          次
         
       
     
@@ -922,6 +960,42 @@
 
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>複製文本</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
+        <hr id='hr-src'>
+      </li>
+      <li class='navigation'>
+        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      </li>
+      <hr>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
       
         
           
@@ -930,44 +1004,13 @@
         
         
         
-          onclick="menuCopy()"
+          onclick="document.execCommand('print')"
         
-        
-          id="menu-copy"
         >
-        <i class='fa fa-copy fa-fw'></i> 复制文本
+        <i class='fa fa-print fa-fw'></i> 打印页面
       </a>
     </li>
   
-        
-      
-        
-          <li class='navigation'>
-            <a class='nav' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
-            <a class='nav' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
-            <a class='nav' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
-            <a class='nav fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
-          </li>
-        
-      
-        
-          <hr>
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          <hr>
-        
-      
-        
-      
         
       
         
@@ -976,12 +1019,12 @@
       
         
           <li class='music name'>
-            <p class='nav music-title'></p>
+            <p class='nav music-title fix-cursor-default'></p>
           </li>
           <li class='music ctrl'>
-            <a class='nav backward' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
-            <a class='nav toggle' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
-            <a class='nav forward' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
+            <a class='nav icon-only backward fix-cursor-default' onclick='aplayerBackward()'><i class='fa fa-step-backward fa-fw'></i></a>
+            <a class='nav icon-only toggle fix-cursor-default' onclick='aplayerToggle()'><i class='fa fa-play fa-fw'></i></a>
+            <a class='nav icon-only forward fix-cursor-default' onclick='aplayerForward()'><i class='fa fa-step-forward fa-fw'></i></a>
           </li>
           <li class='music volume'>
             <a class='nav volume'>
@@ -1000,30 +1043,103 @@
   </div>
 
   <script>
-    window.document.oncontextmenu = function () {
-      return false;
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
     };
     document.addEventListener("click", function (event) {
       var mymenu = document.getElementById('rightmenu-wrapper');
       mymenu.style.display = "none";
     });
     function popMenu(event) {
-      var copy = document.getElementById('menu-copy');
-      var select = window.getSelection().toString(); // 鼠标选中的文本
-      copy.style.display = select == "" ? "none" : "block";
       var mymenu = document.getElementById('rightmenu-wrapper');
       var menuContent = document.getElementById('rightmenu-content');
-      var mouseClientX = event.clientX;
-      var mouseClientY = event.clientY;
-      var menuWidth = menuContent.offsetWidth == 0 ? 150 : menuContent.offsetWidth;
-      var menuHeight = menuContent.offsetHeight == 0 ? 242 : menuContent.offsetHeight;
       var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
       var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
-      var showLeft = mouseClientX + menuWidth > screenWidth ? mouseClientX - menuWidth + 10 : mouseClientX;
-      var showTop = mouseClientY + menuHeight > screenHeight ? mouseClientY - menuHeight + 10 : mouseClientY;
-      mymenu.style.left = showLeft + "px"; // 获取鼠标位置
-      mymenu.style.top = showTop + "px";
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
       mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          copyText.style.display = 'block';
+          hrText.style.display = 'block';
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+
+      // 有音乐播放器
       if (true == true) {
         // 如果有aplayer，初始化一下
       	try {
@@ -1033,14 +1149,22 @@
       		console.log(error);
       	}
       }
+
       return false; // 该行代码确保系统自带的右键菜单不会被调出
     }
     function hideMenu() {
       document.getElementById('rightmenu-wrapper').style.display = 'none';
     }
-    function menuCopy() {
-      document.execCommand("Copy");
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
     }
+    document.execCommand('click');
   </script>
 
 
@@ -1059,8 +1183,6 @@
 
 
 
-
-
   <script async src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 
 
@@ -1073,7 +1195,7 @@
 
     <script type="text/javascript">
       $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/67239FBB-E15D-4F4F-8EE8-0F1C9F3C4E7C.jpeg"];
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/B18FCBB3-67FD-48CC-B4F3-457BA145F17A.jpeg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/B951AE18-D431-417F-B3FE-A382403FF21B.jpeg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/2884F904-F1F3-479E-AE27-5EBC291B63B0.jpeg", "https://i.loli.net/2020/08/09/Lkw8AKQSCprjzPy.jpg"];
         if ('true' == 'true') {
           function shuffle(arr){
             /*From countercurrent-time*/
@@ -1141,41 +1263,43 @@
 
 <script>
 function pjax_minivaline() {
-  var minivalinePath = $.trim($('#minivaline-path').text()) === "none" ?
-      window.location.pathname : $.trim($('#minivaline-path').text());
-  var minivalinePlaceholder = $.trim($('#minivaline-placeholder').text()) === "none" ?
-      "快来评论吧~" : $.trim($('#minivaline-placeholder').text());
-  var ALLPATH = '';
-  if(ALLPATH != '') minivalinePath = ALLPATH;
-new MiniValine({
-  el: '#minivaline_container',
-  appId: '8pgIvoF6Vi55V48BVjT0OGKL-gzGzoHsz',
-  appKey: 'bxO2CYTgR3JovBkmIDVSvk0r',
-  mode: 'xCss',
-  placeholder: minivalinePlaceholder,
-  pathname: minivalinePath,
-  lang: '',
-  adminEmailMd5: '00c230340982c3d2def3e616850e2543',
-  tagMeta: ["博主", "小伙伴", "访客"],
-  master: ["00c230340982c3d2def3e616850e2543", "46767bfa616757c2ef93cfe72c549e87"],
-  friends: [""],
-  math: false,  /*布尔值 字符串无效 下同*/
-  md: true,
-  enableQQ: false,
-  NoRecordIP: true,
-  visitor: false,
-  maxNest: 6,
-  pageSize: 6,
-  barrager: 0,
-  role: 'admin',
-  closeFlag: false,
-  cloudflag: false,
-  region: false,
-  closeUA: false,
-  emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"],
-  serverURLs: ''
-  });
-}
+  let pageUrl = $.trim($('#pjax-comment-path').text()) === "none" ? 
+      decodeURI(window.location.pathname) : $.trim($('#pjax-comment-path').text());
+  let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) === "none" ?
+    "快来评论吧~" : $.trim($('#pjax-comment-placeholder').text());
+
+  let ALLPATH = '';
+  if(ALLPATH != '') pageUrl = ALLPATH;
+
+  new MiniValine({
+    el: '#minivaline_container',
+    appId: '8pgIvoF6Vi55V48BVjT0OGKL-gzGzoHsz',
+    appKey: 'bxO2CYTgR3JovBkmIDVSvk0r',
+    mode: 'xCss',
+    placeholder: pagePlaceholder,
+    path: pageUrl,
+    lang: '',
+    adminEmailMd5: '00c230340982c3d2def3e616850e2543',
+    tagMeta: ["博主", "小伙伴", "访客"],
+    master: ["00c230340982c3d2def3e616850e2543", "46767bfa616757c2ef93cfe72c549e87"],
+    friends: [""],
+    math: false,  /*布尔值 字符串无效 下同*/
+    md: true,
+    enableQQ: false,
+    NoRecordIP: true,
+    visitor: false,
+    maxNest: 6,
+    pageSize: 6,
+    barrager: 0,
+    role: 'admin',
+    closeFlag: false,
+    cloudflag: false,
+    region: false,
+    closeUA: false,
+    emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@latest"],
+    serverURLs: ''
+    });
+  }
   $(function () {
     pjax_minivaline();
   });
@@ -1244,6 +1368,23 @@ new MiniValine({
 
 
 <!-- scrollreveal -->
+
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    function pjax_scrollrebeal() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '32px',
+        duration: '800',
+        interval: '20',
+        scale: '1',
+        easing: 'ease-out'
+      });
+    }
+
+    $(function () {
+      pjax_scrollrebeal();
+    });
+  </script>
 
 <!-- ******************************** -->
 
@@ -1331,10 +1472,6 @@ new MiniValine({
 
 
 
-  
-<script src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2/js/comment_typing.js"></script>
-
-
 
 
 
@@ -1396,19 +1533,18 @@ new MiniValine({
 
       window.subData = null; // 移除标题（用于一二级导航栏切换处）
       $.fancybox.close();    // 关闭弹窗
-      $('.nav-main').find('.list-v').not('.menu-phone').css("display","none"); // 移除小尾巴
-      $('.menu-phone.list-v').css("display","none"); // 移除小尾巴
       $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
       $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
       $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
 
-      $('.s-top').unbind('click');   // 解绑
-      $('.menu a').unbind('click');  // 解绑
-      $(window).unbind('resize');    // 解绑
-      $(window).unbind('scroll');    // 解绑
-      $(document).unbind('scroll');  // 解绑
-      $(document).unbind('click');   // 解绑
-      $('body').unbind('click');     // 解绑
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
       window.ShowLoading();
     });
 
@@ -1441,6 +1577,8 @@ new MiniValine({
         
         
         
+          pjax_scrollrebeal();
+        
         
           pjax_initCopyCode();
         
@@ -1465,8 +1603,5 @@ new MiniValine({
 
     
   </div>
-  
-    <script src="https://cdn.jsdelivr.net/gh/inkss/common@master/hexo/js/cookie.min.js"></script>
-  
 </body>
 </html>
