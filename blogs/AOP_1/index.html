@@ -46,7 +46,7 @@
   
 
   
-    <link rel="shortcut icon" type='image/x-icon' href="/img/LogoSmall.png">
+    <link rel="shortcut icon" type='image/x-icon' href="/img/Avatar.jpg">
   
 
   
@@ -80,12 +80,66 @@
       <div class='cover-body'>
   <div class='a'>
     
+      <img no-lazy class='logo' src='/img/Logo.png'/>
+    
     
     
   </div>
   <div class='b'>
-    <div class='menu navigation dock'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation search'>
       <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-rss fa-fw'></i><p>博客</p>
+            </a>
+          
+            <a href="/categories/"
+              
+              
+              id="categories">
+              <i class='fas fa-folder-open fa-fw'></i><p>分类</p>
+            </a>
+          
+            <a href="/tags/"
+              
+              
+              id="tags">
+              <i class='fas fa-tags fa-fw'></i><p>标签</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fas fa-link fa-fw'></i><p>友链</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-info-circle fa-fw'></i><p>关于</p>
+            </a>
+          
         
       </div>
     </div>
@@ -345,7 +399,7 @@
   
 
 
-  <div class="l_body nocover">
+  <div class="l_body">
     <div class='body-wrapper' id="pjax-container">
       
         <!--此文件用来存放一些不方便取值的变量-->
@@ -368,16 +422,16 @@
 
 <script>
   // 处理封面 此时 jquery 还没加载
-  if ("none" == "none") { // 移除封面
+  if ("blog" == "none") { // 移除封面
     document.getElementsByClassName('cover')[0].style.display = "none";
     document.getElementsByClassName('l_body')[0].classList.add("nocover");
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show");
   } else {
-    if ("none" == "blog") { // 半屏
+    if ("blog" == "blog") { // 半屏
       document.getElementsByClassName('cover')[0].classList.remove("full");
       document.getElementsByClassName('cover')[0].classList.add("half");
       document.getElementsByClassName('scroll-down')[0].style.display = "none";
-    } else if ("none" == "docs") { // 全屏
+    } else if ("blog" == "docs") { // 全屏
       document.getElementsByClassName('cover')[0].classList.remove("half");
       document.getElementsByClassName('cover')[0].classList.add("full");
       document.getElementsByClassName('scroll-down')[0].style.display = "";
@@ -734,7 +788,7 @@
   <div class='content'>
     
       
-        <a class='avatar flat-box circle' href='/about/'>
+        <a class='avatar flat-box rectangle' href='/about/'>
           <img no-lazy src='/img/Avatar.jpg'/>
         </a>
       
@@ -742,9 +796,10 @@
     
       <div class='text'>
         
-          <h2>柴德Fun</h2>
         
         
+          <p><span id="jinrishici-sentence">柴德Fun</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -959,16 +1014,16 @@
       
     
       
-        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
+        Use
         <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
