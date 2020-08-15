@@ -1582,6 +1582,10 @@ div.timenode:last-child:after {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+div.timenode .meta,
+div.timenode .body {
+  max-width: calc(100% - 24px);
+}
 div.timenode .meta {
   position: relative;
   color: rgba(68,68,68,0.65);
@@ -1631,6 +1635,9 @@ div.timenode .body p:first-child {
 }
 div.timenode .body p:last-child {
   margin-bottom: 0;
+}
+div.timenode .body .highlight {
+  border: 1px solid #e4e4e4;
 }
 div.timenode:hover .meta {
   color: #444;
@@ -4678,6 +4685,9 @@ footer .copyright p {
   margin: 16px 0;
   width: 100%;
   display: block;
+}
+.l_body div.loading,
+.l_body div.loading p {
   text-align: center;
 }
 .l_body div.loading i {
@@ -4905,7 +4915,8 @@ footer .copyright p {
 }
 .l_main .post section.meta .title p.h1,
 .l_main .post section.meta .title p.h2 {
-  margin-top: 1rem;
+  margin-top: 64px;
+  margin-bottom: 32px;
   border-bottom: none;
 }
 .l_main .post section.meta .title p.h1 {

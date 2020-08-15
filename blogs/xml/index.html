@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#3.0.0-rc.1'>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -462,6 +462,8 @@
     
       
       
+        <a title='xml解析' href='/blogs/xml/'><img class='thumbnail' src='http://image.gigsider.com/qiniu/20200815192119.png'></a>
+      
       <div class="meta" id="header-meta">
         
           
@@ -533,7 +535,7 @@
 <a id="more"></a>
 
 <p>​    </p>
-<h1 id="1、XML概念"><a href="#1、XML概念" class="headerlink" title="1、XML概念"></a>1、XML概念</h1><p>一个完整的XML文件：</p>
+<h2 id="1-XML概念"><a href="#1-XML概念" class="headerlink" title="1 XML概念"></a>1 XML概念</h2><p>一个完整的XML文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span>             </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don&#x27;t forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -611,7 +613,7 @@
 <li><p>部分流媒体协议，如果CML </p>
 </li>
 </ol>
-<h1 id="2、XML语法"><a href="#2、XML语法" class="headerlink" title="2、XML语法"></a>2、XML语法</h1><ol>
+<h2 id="2-XML语法"><a href="#2-XML语法" class="headerlink" title="2 XML语法"></a>2 XML语法</h2><ol>
 <li><p><strong>所有XML元素都须有关闭标签 ，而不像部分的HTML标签</strong></p>
 </li>
 <li><p><strong>声明语句也可以不要</strong></p>
@@ -633,7 +635,7 @@
 <li><p><strong>元数据（有关数据的数据）应当存储为属性，而数据本身应当存储为元素。</strong></p>
 </li>
 </ol>
-<h1 id="3、XML解析方式"><a href="#3、XML解析方式" class="headerlink" title="3、XML解析方式"></a>3、XML解析方式</h1><p>两种方式：SAX,DOM</p>
+<h2 id="3-XML解析方式"><a href="#3-XML解析方式" class="headerlink" title="3 XML解析方式"></a>3 XML解析方式</h2><p>两种方式：SAX,DOM</p>
 <p><img src="http://image.gigsider.com/qiniu/20200812213707.png" alt="SAX VS DOM"></p>
 <p>SAX适于处理下面的问题： </p>
 <ul>
@@ -650,7 +652,7 @@
 <li><p>需要校验XML的合法性，完整性</p>
 </li>
 </ul>
-<h1 id="4、Java解析XML"><a href="#4、Java解析XML" class="headerlink" title="4、Java解析XML"></a>4、Java解析XML</h1><ol>
+<h2 id="4-Java解析XML"><a href="#4-Java解析XML" class="headerlink" title="4 Java解析XML"></a>4 Java解析XML</h2><ol>
 <li><strong>DOM解析器</strong></li>
 </ol>
 <p>​        由W3C提供的接口，它将整个XML文档读入内存，构建一个DOM树来对各个节点(Node)进行操作。（参见代码） </p>
@@ -666,7 +668,7 @@
 <li><strong>DOM4J解析器</strong> </li>
 </ol>
 <p>​        DOM4J是目前在xml解析方面是最优秀的(Hibernate、Sun的 JAXM也都使用dom4j来解析XML)，它合并了许多超出基本 XML 文档表示的功能，包括集成的 XPath 支持、XML Schema 支持以及用于大文档或流化文档的基于事件的处理。</p>
-<h1 id="5、JDOM，DOM4J解析实例"><a href="#5、JDOM，DOM4J解析实例" class="headerlink" title="5、JDOM，DOM4J解析实例"></a>5、JDOM，DOM4J解析实例</h1><h2 id="5-1-JDOM"><a href="#5-1-JDOM" class="headerlink" title="5.1 JDOM"></a>5.1 JDOM</h2><p>被解析的xml文件：</p>
+<h2 id="5-JDOM，DOM4J解析实例"><a href="#5-JDOM，DOM4J解析实例" class="headerlink" title="5 JDOM，DOM4J解析实例"></a>5 JDOM，DOM4J解析实例</h2><h3 id="5-1-JDOM"><a href="#5-1-JDOM" class="headerlink" title="5.1 JDOM"></a>5.1 JDOM</h3><p>被解析的xml文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">database</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:mysql://localhost:3306/studentinfo?characterEncoding=UTF-8<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>root<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pwd</span>&gt;</span>123123<span class="tag">&lt;/<span class="name">pwd</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driver</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">driver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">database</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>JDOM解析：</p>
@@ -674,7 +676,7 @@
 
 <p>输出：</p>
 <p><img src="http://image.gigsider.com/qiniu/20200812213712.png" alt="JDOM解析"></p>
-<h2 id="5-2-DOM4J"><a href="#5-2-DOM4J" class="headerlink" title="5.2 DOM4J"></a>5.2 DOM4J</h2><p>xml文件：</p>
+<h3 id="5-2-DOM4J"><a href="#5-2-DOM4J" class="headerlink" title="5.2 DOM4J"></a>5.2 DOM4J</h3><p>xml文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Result</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2005&quot;</span>&gt;</span>A1<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>GZ<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">VALUE</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2004&quot;</span>&gt;</span>A2<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XG<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">VALUE</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">NO</span> <span class="attr">DATE</span>=<span class="string">&quot;2014&quot;</span>&gt;</span>A4<span class="tag">&lt;/<span class="name">NO</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">ADDR</span>&gt;</span>XGgggg<span class="tag">&lt;/<span class="name">ADDR</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Result</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>DOM4J:</p>
@@ -755,10 +757,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-12T21:37:25+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-15T19:21:37+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 12, 2020</p>
+    <p>更新于：Aug 15, 2020</p>
   </a>
 </div>
 
@@ -785,7 +787,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815192119.png&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -797,7 +799,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815192119.png&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -809,7 +811,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/xml/&title=xml解析 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815192119.png&summary=​     摘要：XML语法、XML解析方式、Java解析XML、Jdom、Dom4j"
           
           >
           
@@ -839,17 +841,17 @@
 
 
 ​     
-1、流的概念1.1流（1）流是一个无结构化的数据组成的序列，流中的数据没有任何格式和含义，只是...</p>
+1 流的概念1.1 流（1）流是一个无结构化的数据组成的序列，流中的数据没有任何格式和含义，只...</p>
               </a>
             
             
               <a class='next' href='/blogs/Web-Points/'>
                 <p class='title'>计算机网络重点知识<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-                <p class='content'>​      摘要：网络层次的划分、OSI七层网络模型、IP地址、相关的协议
+                <p class='content'>
 
 
 ​      
-1、前言​        计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进...</p>
+1 前言​        计算机网络学习的核心内容就是网络协议的学习。网络协议是为计算机网络中进行数据交换而建立的规则、标准或者说是约定的集合。因为不同用户的数据终端可能采...</p>
               </a>
             
           </div>
@@ -967,7 +969,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-JDOM"><span class="toc-text">5.1 JDOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-DOM4J"><span class="toc-text">5.2 DOM4J</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-XML%E6%A6%82%E5%BF%B5"><span class="toc-text">1 XML概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-XML%E8%AF%AD%E6%B3%95"><span class="toc-text">2 XML语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-XML%E8%A7%A3%E6%9E%90%E6%96%B9%E5%BC%8F"><span class="toc-text">3 XML解析方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Java%E8%A7%A3%E6%9E%90XML"><span class="toc-text">4 Java解析XML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-JDOM%EF%BC%8CDOM4J%E8%A7%A3%E6%9E%90%E5%AE%9E%E4%BE%8B"><span class="toc-text">5 JDOM，DOM4J解析实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-JDOM"><span class="toc-text">5.1 JDOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-DOM4J"><span class="toc-text">5.2 DOM4J</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1120,16 +1122,16 @@
       
     
       
-        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
-        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
@@ -1152,12 +1154,12 @@
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>複製文本</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>Copy Text</a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
         <hr id='hr-src'>
       </li>
       <li class='navigation'>
@@ -1400,8 +1402,8 @@
           }
           shuffle(imgs);
         }
-        if ('.cover') {
-          $('.cover').backstretch(
+        if ('') {
+          $('').backstretch(
             imgs,
           {
             duration: "20000",
@@ -1760,8 +1762,8 @@ function pjax_minivaline() {
         pjax_fancybox();
         
           
-          if ('.cover') {
-            $('.cover').backstretch("resize");
+          if ('') {
+            $('').backstretch("resize");
           } else {
             $.backstretch("resize");
           }

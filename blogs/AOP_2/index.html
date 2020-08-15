@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#3.0.0-rc.1'>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -462,6 +462,8 @@
     
       
       
+        <a title='AOP技术(2)' href='/blogs/AOP_2/'><img class='thumbnail' src='http://image.gigsider.com/qiniu/20200815191300.png'></a>
+      
       <div class="meta" id="header-meta">
         
           
@@ -533,7 +535,7 @@
 <a id="more"></a>
 
 <p>​    </p>
-<h1 id="1-通过自己的spring内核实现AOP"><a href="#1-通过自己的spring内核实现AOP" class="headerlink" title="1. 通过自己的spring内核实现AOP"></a>1. 通过自己的spring内核实现AOP</h1><p>配置文件：</p>
+<h2 id="1-通过自己的spring内核实现AOP"><a href="#1-通过自己的spring内核实现AOP" class="headerlink" title="1 通过自己的spring内核实现AOP"></a>1 通过自己的spring内核实现AOP</h2><p>配置文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;before&quot;</span>  <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.DemoBefore&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;after&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.DemoAfterMethod&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;aobj&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.A&quot;</span>/&gt;</span></span><br><span class="line">   </span><br><span class="line">   <span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">&quot;proxy&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.base.test.ProxyHelloTwo&quot;</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;target&quot;</span>  <span class="attr">ref</span>=<span class="string">&quot;aobj&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;before&quot;</span>  <span class="attr">ref</span>=<span class="string">&quot;before&quot;</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;after&quot;</span>   <span class="attr">ref</span>=<span class="string">&quot;after&quot;</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​        通过解析这个配置文件，可以得到两个切片的对象，被代理的对象。然后使用接口对象去引用该中间代理类生成的对象，即可实现AOP功能。</p>
@@ -549,9 +551,7 @@
 <p>main函数：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProxyBySelfSpring</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        IHello target=(IHello)SpringCore.getBean(<span class="string">&quot;proxy&quot;</span>);</span><br><span class="line">        target.sayHello(<span class="string">&quot;I like china!&quot;</span>);</span><br><span class="line">        target.sayBye();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h1 id="2、实现AOP的两种技术"><a href="#2、实现AOP的两种技术" class="headerlink" title="2、实现AOP的两种技术"></a>2、实现AOP的两种技术</h1><h2 id="2-1-三种切片类型"><a href="#2-1-三种切片类型" class="headerlink" title="2.1 三种切片类型"></a>2.1 三种切片类型</h2><ol>
+<h2 id="2-实现AOP的两种技术"><a href="#2-实现AOP的两种技术" class="headerlink" title="2 实现AOP的两种技术"></a>2 实现AOP的两种技术</h2><h3 id="2-1-三种切片类型"><a href="#2-1-三种切片类型" class="headerlink" title="2.1 三种切片类型"></a>2.1 三种切片类型</h3><ol>
 <li>AfterAdvice</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AfterAdviceDemo</span> <span class="keyword">implements</span> <span class="title">AfterReturningAdvice</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">(Object arg0, Method arg1, Object[] arg2,</span></span></span><br><span class="line"><span class="function"><span class="params">            Object arg3)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.println(<span class="string">&quot;after advice demo.....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -566,9 +566,7 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RoundAdviceDemo</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(MethodInvocation arg0)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.println(<span class="string">&quot;round demo....&quot;</span>);</span><br><span class="line">        Object object= arg0.proceed();<span class="comment">// 调用代理对象的方法</span></span><br><span class="line">        System.out.println(<span class="string">&quot;after round demo....&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="2-2-JDK动态代理技术"><a href="#2-2-JDK动态代理技术" class="headerlink" title="2.2 JDK动态代理技术"></a>2.2 JDK动态代理技术</h2><p>​        应用场景：实现了接口的类。</p>
+<h3 id="2-2-JDK动态代理技术"><a href="#2-2-JDK动态代理技术" class="headerlink" title="2.2 JDK动态代理技术"></a>2.2 JDK动态代理技术</h3><p>​        应用场景：实现了接口的类。</p>
 <p>​        如何实现：定义Proxy类实现接口，重写接口的方法，从而增加切片。</p>
 <p>实现了接口的类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceDemo</span> <span class="keyword">implements</span> <span class="title">IAopDemo</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name=<span class="string">&quot;hzhqian&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUrl</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;name : &quot;</span> + <span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printURL</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;company : &quot;</span> + <span class="keyword">this</span>.url);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printThrowException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printA</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.println(<span class="string">&quot;interface A demo...&quot;</span>);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">PrintB</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        System.out.println(<span class="string">&quot;interface B demo...&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -580,7 +578,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans </span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop </span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;demoService&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.springAOP.ServiceDemo&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;hugeyurt&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;hugeyurt.com&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>    </span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;beforeDemo&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.springAOP.DemoBeforeAdvice&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;afterDemo&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.springAOP.AfterAdviceDemo&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;roundDemo&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.hugeyurt.springAOP.RoundAdviceDemo&quot;</span> /&gt;</span> </span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;serviceProxy&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">class</span>=<span class="string">&quot;org.springframework.aop.framework.ProxyFactoryBean&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;target&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;demoService&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;interceptorNames&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--&lt;value&gt;beforeDemo&lt;/value&gt;   --&gt;</span> </span><br><span class="line">                <span class="comment">&lt;!--  &lt;value&gt;afterDemo&lt;/value&gt; --&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">value</span>&gt;</span>roundDemo<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>   </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​        xml文件中为实现了接口的类创建了一个对象，然后通过Proxy类进行切片操作，生成了serviceProxy对象，使用接口的对象引用serviceProxy，即可实现JDK动态代理。</p>
-<h2 id="2-3-字节码增强技术"><a href="#2-3-字节码增强技术" class="headerlink" title="2.3 字节码增强技术"></a>2.3 字节码增强技术</h2><p>​        应用场景：没有实现接口的类。</p>
+<h3 id="2-3-字节码增强技术"><a href="#2-3-字节码增强技术" class="headerlink" title="2.3 字节码增强技术"></a>2.3 字节码增强技术</h3><p>​        应用场景：没有实现接口的类。</p>
 <p>​        如何实现：定义一个子类继承被代理类，重写接口的方法，增加切片。</p>
 <p>未实现接口的类：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServiceDemo2</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name=<span class="string">&quot;hzhqian&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line">    <span class="keyword">protected</span>  <span class="keyword">int</span>  myName=<span class="number">99</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUrl</span><span class="params">(String url)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.url = url;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;name : &quot;</span> + <span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printURL</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;company : &quot;</span> + <span class="keyword">this</span>.url);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -592,7 +590,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">        ApplicationContext appContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(</span><br><span class="line">                <span class="keyword">new</span> String[] &#123; <span class="string">&quot;beans.xml&quot;</span> &#125;);</span><br><span class="line">        </span><br><span class="line">        ServiceDemo2 demo2 =(ServiceDemo2) appContext.getBean(<span class="string">&quot;serviceProxy1&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        System.out.println(demo2.getClass().getName());</span><br><span class="line">         System.out.println(demo2 <span class="keyword">instanceof</span> IAopDemo);</span><br><span class="line">        System.out.println(demo2.getClass().getSuperclass().getName());</span><br><span class="line">        demo2.printName();</span><br><span class="line">        demo2.printURL();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>​        根据生成的字节码对象，调用<code>getInterface()</code>函数判断该类是否实现了接口，若实现了，则使用JDK动态代理技术，反之，则创建一个类继承被代理类，完成切片操作。</p>
-<h1 id="3、-小结"><a href="#3、-小结" class="headerlink" title="3、 小结"></a>3、 小结</h1><p>​        上述两种技术的原理都是重写被代理类的方法，在上一节中的中间代理类Dyn被写到了配置文件中。通过解析配置文件这一方法，更加体现了可维护性。</p>
+<h2 id="3-小结"><a href="#3-小结" class="headerlink" title="3 小结"></a>3 小结</h2><p>​        上述两种技术的原理都是重写被代理类的方法，在上一节中的中间代理类Dyn被写到了配置文件中。通过解析配置文件这一方法，更加体现了可维护性。</p>
 <p>​        这个版本仍然存在问题，当被代理类中有多个方法时，每个方法都会被进行切片操作。</p>
 
           
@@ -667,10 +665,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-02T09:27:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-15T19:13:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 2, 2020</p>
+    <p>更新于：Aug 15, 2020</p>
   </a>
 </div>
 
@@ -697,7 +695,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191300.png&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
           
           >
           
@@ -709,7 +707,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191300.png&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
           
           >
           
@@ -721,7 +719,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/AOP_2/&title=AOP技术(2) - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191300.png&summary=​     摘要：通过自己的spring内核实现AOP、实现AOP的两种技术"
           
           >
           
@@ -752,7 +750,7 @@
 
 
 ​     
-1、AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编...</p>
+1 AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编...</p>
               </a>
             
           </div>
@@ -870,7 +868,7 @@
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%B8%89%E7%A7%8D%E5%88%87%E7%89%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.1 三种切片类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-text">2.2 JDK动态代理技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%AD%97%E8%8A%82%E7%A0%81%E5%A2%9E%E5%BC%BA%E6%8A%80%E6%9C%AF"><span class="toc-text">2.3 字节码增强技术</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%9A%E8%BF%87%E8%87%AA%E5%B7%B1%E7%9A%84spring%E5%86%85%E6%A0%B8%E5%AE%9E%E7%8E%B0AOP"><span class="toc-text">1 通过自己的spring内核实现AOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0AOP%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%8A%80%E6%9C%AF"><span class="toc-text">2 实现AOP的两种技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%B8%89%E7%A7%8D%E5%88%87%E7%89%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.1 三种切片类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%8A%80%E6%9C%AF"><span class="toc-text">2.2 JDK动态代理技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%AD%97%E8%8A%82%E7%A0%81%E5%A2%9E%E5%BC%BA%E6%8A%80%E6%9C%AF"><span class="toc-text">2.3 字节码增强技术</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B0%8F%E7%BB%93"><span class="toc-text">3 小结</span></a></li></ol>
     </div>
   </section>
 
@@ -1023,16 +1021,16 @@
       
     
       
-        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
-        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
@@ -1055,12 +1053,12 @@
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>複製文本</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>Copy Text</a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
         <hr id='hr-src'>
       </li>
       <li class='navigation'>
@@ -1303,8 +1301,8 @@
           }
           shuffle(imgs);
         }
-        if ('.cover') {
-          $('.cover').backstretch(
+        if ('') {
+          $('').backstretch(
             imgs,
           {
             duration: "20000",
@@ -1663,8 +1661,8 @@ function pjax_minivaline() {
         pjax_fancybox();
         
           
-          if ('.cover') {
-            $('.cover').backstretch("resize");
+          if ('') {
+            $('').backstretch("resize");
           } else {
             $.backstretch("resize");
           }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head hexo-theme='https://volantis.js.org/#3.0.0-rc.1'>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
@@ -462,6 +462,8 @@
     
       
       
+        <a title='MarkDown基础语法' href='/blogs/MarkDown-First-Met/'><img class='thumbnail' src='http://image.gigsider.com/qiniu/20200815191405.png'></a>
+      
       <div class="meta" id="header-meta">
         
           
@@ -535,30 +537,30 @@
 
 
 <hr>
-<h1 id="1、标题"><a href="#1、标题" class="headerlink" title="1、标题"></a>1、标题</h1><hr>
+<h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1 标题"></a>1 标题</h2><hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题名</span><br><span class="line">## 二级标题名</span><br><span class="line">### 三级标题名</span><br><span class="line">......</span><br><span class="line">###### 六级标题名</span><br></pre></td></tr></table></figure>
 
 <p>标题最多支持六级标题</p>
-<h1 id="2、文字"><a href="#2、文字" class="headerlink" title="2、文字"></a>2、文字</h1><hr>
+<h2 id="2-文字"><a href="#2-文字" class="headerlink" title="2 文字"></a>2 文字</h2><hr>
 <p>有些文字格式 MarkDown 的原生语法并不包括，</p>
 <p>解决方案：</p>
 <ul>
 <li><a href="#2-5-%E4%B8%8B%E5%88%92%E7%BA%BF">使用HTML的标签</a></li>
 <li><a href="#2-5-%E4%B8%8B%E5%88%92%E7%BA%BF">使用HTML标签+CSS样式实现自己想要的字体格式</a></li>
 </ul>
-<h2 id="2-1-删除线"><a href="#2-1-删除线" class="headerlink" title="2.1 删除线"></a>2.1 删除线</h2><p>使用”~~”:</p>
+<h3 id="2-1-删除线"><a href="#2-1-删除线" class="headerlink" title="2.1 删除线"></a>2.1 删除线</h3><p>使用”~~”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~加上删除线的文字~~</span><br></pre></td></tr></table></figure>
 
 <p>效果：<del>加上删除线的文字</del></p>
-<h2 id="2-2-斜体"><a href="#2-2-斜体" class="headerlink" title="2.2 斜体"></a>2.2 斜体</h2><p>使用”*”:</p>
+<h3 id="2-2-斜体"><a href="#2-2-斜体" class="headerlink" title="2.2 斜体"></a>2.2 斜体</h3><p>使用”*”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体的文字*</span><br></pre></td></tr></table></figure>
 
 <p>效果：<em>斜体的文字</em></p>
-<h2 id="2-3-加粗"><a href="#2-3-加粗" class="headerlink" title="2.3 加粗"></a>2.3 加粗</h2><p>使用”**”:</p>
+<h3 id="2-3-加粗"><a href="#2-3-加粗" class="headerlink" title="2.3 加粗"></a>2.3 加粗</h3><p>使用”**”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**加粗的文字**</span><br></pre></td></tr></table></figure>
 
 <p>效果：<strong>加粗的文字</strong></p>
-<h2 id="2-4-表格"><a href="#2-4-表格" class="headerlink" title="2.4 表格"></a>2.4 表格</h2><p>使用”|”来分隔不同的单元格，使用”-“来分隔表头和其他行，为了美观，可以使用空格对齐不同行的单元格，并在左右两侧都使用”|”来标记单元格边界，在表头下方的分隔线标记中加入”:”，即可标记下方单元格内容的对齐方式：</p>
+<h3 id="2-4-表格"><a href="#2-4-表格" class="headerlink" title="2.4 表格"></a>2.4 表格</h3><p>使用”|”来分隔不同的单元格，使用”-“来分隔表头和其他行，为了美观，可以使用空格对齐不同行的单元格，并在左右两侧都使用”|”来标记单元格边界，在表头下方的分隔线标记中加入”:”，即可标记下方单元格内容的对齐方式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|    Name    |    Age    |    Sex    |</span><br><span class="line">| :--------- | :-------: | --------: |</span><br><span class="line">| Ming       | 19        | Male      |</span><br><span class="line">| Hong       | 20        | Female    |</span><br><span class="line">| Gang       | 18        | Male      |</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
@@ -586,7 +588,7 @@
 <td align="right">Male</td>
 </tr>
 </tbody></table>
-<h2 id="2-5-下划线"><a href="#2-5-下划线" class="headerlink" title="2.5 下划线"></a>2.5 下划线</h2><p>使用 HTML <code>&lt;u&gt;</code> 标签:</p>
+<h3 id="2-5-下划线"><a href="#2-5-下划线" class="headerlink" title="2.5 下划线"></a>2.5 下划线</h3><p>使用 HTML <code>&lt;u&gt;</code> 标签:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;u&gt;HTML u 标签&lt;&#x2F;u&gt;</span><br></pre></td></tr></table></figure>
 
 <p>使用 HTML 标签 + CSS 样式:</p>
@@ -596,7 +598,7 @@
 
 <p>u标签效果：<u>HTML u 标签</u></p>
 <p>HTML + CSS 效果: <span style="border-bottom:2px dashed yellow;">HTML 标签 + CSS 样式</span></p>
-<h2 id="2-6-上标、下标"><a href="#2-6-上标、下标" class="headerlink" title="2.6 上标、下标"></a>2.6 上标、下标</h2><p>上标使用 HTML <code>&lt;sup&gt;</code> 标签:</p>
+<h3 id="2-6-上标、下标"><a href="#2-6-上标、下标" class="headerlink" title="2.6 上标、下标"></a>2.6 上标、下标</h3><p>上标使用 HTML <code>&lt;sup&gt;</code> 标签:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUPER&lt;sup&gt;我是上标&lt;&#x2F;sup&gt;</span><br></pre></td></tr></table></figure>
 
 <p>下标使用 HTML <code>&lt;sub&gt;</code> 标签:</p>
@@ -604,7 +606,7 @@
 
 <p>上标效果：SUPER<sup>我是上标</sup></p>
 <p>下标效果：SUB<sub>我是下标</sub></p>
-<h1 id="3、引用"><a href="#3、引用" class="headerlink" title="3、引用"></a>3、引用</h1><hr>
+<h2 id="3-引用"><a href="#3-引用" class="headerlink" title="3 引用"></a>3 引用</h2><hr>
 <p>使用”&gt;”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;朝辞白帝彩云间</span><br><span class="line">&gt;&gt;千里江陵一日还</span><br><span class="line">&gt;&gt;&gt;两岸猿声啼不住</span><br><span class="line">&gt;&gt;&gt;&gt;轻舟已过万重山</span><br></pre></td></tr></table></figure>
 
@@ -621,8 +623,8 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h1 id="4、列表"><a href="#4、列表" class="headerlink" title="4、列表"></a>4、列表</h1><hr>
-<h2 id="4-1-有序列表"><a href="#4-1-有序列表" class="headerlink" title="4.1 有序列表"></a>4.1 有序列表</h2><p>使用”数字. “:</p>
+<h2 id="4-列表"><a href="#4-列表" class="headerlink" title="4 列表"></a>4 列表</h2><hr>
+<h3 id="4-1-有序列表"><a href="#4-1-有序列表" class="headerlink" title="4.1 有序列表"></a>4.1 有序列表</h3><p>使用”数字. “:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 注意&quot;.&quot;后要有空格</span><br><span class="line">2. 列表</span><br><span class="line">3. 有序列表</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
@@ -631,7 +633,7 @@
 <li>列表</li>
 <li>有序列表</li>
 </ol>
-<h2 id="4-2-无序列表"><a href="#4-2-无序列表" class="headerlink" title="4.2 无序列表"></a>4.2 无序列表</h2><p>使用”*”或”+”或”-“:</p>
+<h3 id="4-2-无序列表"><a href="#4-2-无序列表" class="headerlink" title="4.2 无序列表"></a>4.2 无序列表</h3><p>使用”*”或”+”或”-“:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 注意符号后要有空格</span><br><span class="line">+ 列表</span><br><span class="line">- 无序列表</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
@@ -644,19 +646,19 @@
 <ul>
 <li>无序列表</li>
 </ul>
-<h1 id="5、代码"><a href="#5、代码" class="headerlink" title="5、代码"></a>5、代码</h1><hr>
+<h2 id="5-代码"><a href="#5-代码" class="headerlink" title="5 代码"></a>5 代码</h2><hr>
 <p>代码中的文本都会显示为原始内容。</p>
-<h2 id="5-1-代码块"><a href="#5-1-代码块" class="headerlink" title="5.1 代码块"></a>5.1 代码块</h2><p>使用”```语言名称”:</p>
+<h3 id="5-1-代码块"><a href="#5-1-代码块" class="headerlink" title="5.1 代码块"></a>5.1 代码块</h3><p>使用”```语言名称”:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">​&#96;&#96;&#96;c++</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; &quot;Hello world&quot; &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Hello world&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-2-行内代码"><a href="#5-2-行内代码" class="headerlink" title="5.2 行内代码"></a>5.2 行内代码</h2><p>使用”<code>``</code>“:</p>
+<h3 id="5-2-行内代码"><a href="#5-2-行内代码" class="headerlink" title="5.2 行内代码"></a>5.2 行内代码</h3><p>使用”<code>``</code>“:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;System.out.println(&quot;Hello world!&quot;)&#96;</span><br></pre></td></tr></table></figure>
 
 <p>效果：<code>System.out.println(&quot;Hello world!&quot;)</code></p>
-<h1 id="6、分割线"><a href="#6、分割线" class="headerlink" title="6、分割线"></a>6、分割线</h1><hr>
+<h2 id="6-分割线"><a href="#6-分割线" class="headerlink" title="6 分割线"></a>6 分割线</h2><hr>
 <p>使用”—“或”___”或”***”（符号数大于三个即可）:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">******</span><br><span class="line">----------</span><br><span class="line">_____</span><br></pre></td></tr></table></figure>
 
@@ -664,7 +666,7 @@
 <hr>
 <hr>
 <hr>
-<h1 id="7、跳转"><a href="#7、跳转" class="headerlink" title="7、跳转"></a>7、跳转</h1><hr>
+<h2 id="7-跳转"><a href="#7-跳转" class="headerlink" title="7 跳转"></a>7 跳转</h2><hr>
 <p>使用”<code>[现实的文本](跳转的链接)</code>“:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[我的博客](https:&#x2F;&#x2F;www.gigsider-fun.com)</span><br></pre></td></tr></table></figure>
 
@@ -673,7 +675,7 @@
 
 <p><code>[]()</code>效果：<a target="_blank" rel="noopener" href="https://www.gigsider-fun.com/">我的博客</a></p>
 <p><code>&lt;&gt;</code>效果：<a target="_blank" rel="noopener" href="https://www.gigsider-fun.com/">https://www.gigsider-fun.com</a></p>
-<h1 id="8、图片"><a href="#8、图片" class="headerlink" title="8、图片"></a>8、图片</h1><hr>
+<h2 id="8-图片"><a href="#8-图片" class="headerlink" title="8 图片"></a>8 图片</h2><hr>
 <p>使用”<code>![图片的描述](图片的地址)</code>“:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![测试图片](MarkDown-First-Met&#x2F;test.png)</span><br></pre></td></tr></table></figure>
 
@@ -756,10 +758,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-12T21:34:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-08-15T19:14:56+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 12, 2020</p>
+    <p>更新于：Aug 15, 2020</p>
   </a>
 </div>
 
@@ -786,7 +788,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191405.png&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
           
           >
           
@@ -798,7 +800,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191405.png&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
           
           >
           
@@ -810,7 +812,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://gigsider.com/blogs/MarkDown-First-Met/&title=MarkDown基础语法 - 柴德Fun&pics=http://image.gigsider.com/qiniu/20200815191405.png&summary=MarkDown 是一种轻量级标记语言。Markdown 的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。"
           
           >
           
@@ -840,7 +842,7 @@
 
 
 ​     
-1、AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编...</p>
+1 AOP介绍​        AOP（Aspect-Oriented Programming，面向方面编...</p>
               </a>
             
             
@@ -850,7 +852,7 @@
 
 
 ​    
-1、NIO概念1.1 Unix定义了五种 I/O 模型
+1 NIO概念1.1 Unix定义了五种 I/O 模型
 阻塞 I/O
 非阻塞 I/O
 I/O ...</p>
@@ -971,7 +973,7 @@ I/O ...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-text">2.1 删除线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%96%9C%E4%BD%93"><span class="toc-text">2.2 斜体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E5%8A%A0%E7%B2%97"><span class="toc-text">2.3 加粗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%A1%A8%E6%A0%BC"><span class="toc-text">2.4 表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-text">2.5 下划线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E4%B8%8A%E6%A0%87%E3%80%81%E4%B8%8B%E6%A0%87"><span class="toc-text">2.6 上标、下标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">4.1 有序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">4.2 无序列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">5.1 代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-text">5.2 行内代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%87%E9%A2%98"><span class="toc-text">1 标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%87%E5%AD%97"><span class="toc-text">2 文字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-text">2.1 删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%96%9C%E4%BD%93"><span class="toc-text">2.2 斜体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%8A%A0%E7%B2%97"><span class="toc-text">2.3 加粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%A1%A8%E6%A0%BC"><span class="toc-text">2.4 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-text">2.5 下划线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E4%B8%8A%E6%A0%87%E3%80%81%E4%B8%8B%E6%A0%87"><span class="toc-text">2.6 上标、下标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%BC%95%E7%94%A8"><span class="toc-text">3 引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%88%97%E8%A1%A8"><span class="toc-text">4 列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">4.1 有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-text">4.2 无序列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BB%A3%E7%A0%81"><span class="toc-text">5 代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-text">5.1 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="toc-text">5.2 行内代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-text">6 分割线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%B7%B3%E8%BD%AC"><span class="toc-text">7 跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%9B%BE%E7%89%87"><span class="toc-text">8 图片</span></a></li></ol>
     </div>
   </section>
 
@@ -1124,16 +1126,16 @@ I/O ...</p>
       
     
       
-        <div><p>博客內容遵循 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh_TW">姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 協議</a></p>
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
 </div>
       
     
       
-        本站使用
-        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
-        作為主題，總訪問量為
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/releases/tag/3.0.0-rc.2" target="_blank" class="codename">Volantis</a>
+        as theme, total visits
           <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          次
+          times
         
       
     
@@ -1156,12 +1158,12 @@ I/O ...</p>
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
       <li class='option'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>複製文本</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick='document.execCommand("copy")'><i class='fa fa-copy fa-fw'></i>Copy Text</a>
         <hr id='hr-text'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>複製鏈接</a>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>在新標籤頁打開</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
         <hr id='hr-href'>
-        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>複製圖片地址</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
         <hr id='hr-src'>
       </li>
       <li class='navigation'>
@@ -1404,8 +1406,8 @@ I/O ...</p>
           }
           shuffle(imgs);
         }
-        if ('.cover') {
-          $('.cover').backstretch(
+        if ('') {
+          $('').backstretch(
             imgs,
           {
             duration: "20000",
@@ -1764,8 +1766,8 @@ function pjax_minivaline() {
         pjax_fancybox();
         
           
-          if ('.cover') {
-            $('.cover').backstretch("resize");
+          if ('') {
+            $('').backstretch("resize");
           } else {
             $.backstretch("resize");
           }
